@@ -24,12 +24,14 @@ function storySubmit() {
 	var name = $('#name').val();
 	var email = $('#email').val();
 	var story = $('#story').val();
-	var tags = $('#source-tags').val();
+	var tags = $('#source-tags').val().split(",");
 	var file = document.getElementById('story-image').files[0];
 	var reader = new FileReader();
 
 	reader.onloadend = function() {
-		// submit data
+		var ref = new Firebase("https://gtarboretum.firebaseio.com");
+		var storiesRef = ref.child("stories");
+		storiesRef.push({name: name, email: email, story: story, tags: tags, file: reader.result, visible: false});
     };
 
     if (file) {
