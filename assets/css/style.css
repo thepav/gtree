@@ -3144,7 +3144,7 @@ input[type="color"] {
 input {
   border: 1px solid #cecece;
 }
-input.no-boarder {
+input.no-border {
   border: none;
 }
 input.dark {
@@ -3196,8 +3196,8 @@ input[type="checkbox"] {
 }
 select,
 input[type="file"] {
-  height: 34px !important;
-  line-height: 30px;
+  height: 20px !important;
+  line-height: 10px;
 }
 select {
   width: 220px;
