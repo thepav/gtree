@@ -8,7 +8,7 @@
 		{
 			"id":"states",
 			"title":"States",
-			"map":"assets/img/map_svg.svg",
+			"map":"assets/img/campus-map.png",
 			"minimap":"assets/img/us-small.jpg",
 			"locations":[
 				{

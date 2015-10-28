@@ -670,7 +670,7 @@ if($('#location-map-2').length > 0){
 }
     
 $('#mapplic_demo').mapplic({
-    source: 'http://revox.io/webarch/json/states.json',
+    source: 'assets/js/json/states.json',
     height: 494,
     sidebar: false,
     minimap: false,
