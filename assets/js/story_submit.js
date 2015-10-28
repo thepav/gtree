@@ -31,7 +31,11 @@ function storySubmit() {
 	reader.onloadend = function() {
 		var ref = new Firebase("https://gtarboretum.firebaseio.com");
 		var storiesRef = ref.child("stories");
-		storiesRef.push({name: name, email: email, story: story, tags: tags, file: reader.result, visible: false});
+		storiesRef.push({name: name, email: email, story: story, tags: tags, file: reader.result, visible: false}, function(){
+           window.location.href = "index.html"; 
+        });
+        
+
     };
 
     if (file) {
