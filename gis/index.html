@@ -1,0 +1,44 @@
+<html>
+	<head>
+
+	</head>
+	<body>
+		<h2>Area</h2>
+		x1: <input type="text" id="x1" value="2228377"> y1: <input type="text" id="y1" value="1371951"> <br> 
+		x2: <input type="text" id="x2" value="2228477"> y2: <input type="text" id="y2" value="1372051"> <br>
+		<input type="button" id="load-card" value="Click Here to Load Cards">
+		<h2>Card 1</h2>
+		<div id="card1"></div>
+		<h2>Card 2</h2>
+		<div id="card2"></div>
+	</body>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/getcard.js"></script>
+
+	<script>
+		$("#load-card").click(function() {
+			var values = [$("#x1").val(), $("#y1").val(), $("#x2").val(), $("#y2").val()];
+			setupcards(values);
+			checkOnCards(fillCards);
+		});
+		function checkOnCards()
+		{
+			if (cardready==false) {setTimeout(checkOnCards, 100)}
+			else {fillCards();}
+		}
+		function fillCards()
+		{
+			fillDiv($("#card1"), getcard1());
+			fillDiv($("#card2"), getcard2());
+		}
+		function fillDiv(div, obj)
+		{
+			div.html("");
+			var keys = Object.keys(obj);
+			for (i=0; i<keys.length; i++)
+			{
+				div.append(keys[i] + ": " + obj[keys[i]] + "<br>");
+			}
+		}
+	</script>
+</html>
