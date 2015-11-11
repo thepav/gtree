@@ -30,16 +30,8 @@
 <link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
 <link href="assets/css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
 <link href="assets/css/magic_space.css" rel="stylesheet" type="text/css"/>
-<link href="assets/css/footer.css" rel="stylesheet" type="text/css"/>
 <!-- END CSS TEMPLATE -->
-<style type="text/css">
-.row-eq-height {
-display: -webkit-box;
-display: -webkit-flex;
-display: -ms-flexbox;
-display:         flex;
-}
-</style>
+
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -51,7 +43,7 @@ display:         flex;
     <div class="header-seperation">
       <ul class="nav pull-left notifcation-center" id="main-menu-toggle-wrapper" style="display:none">
         <li class="dropdown"> <a id="main-menu-toggle" href="#main-menu"  class="" >
-          <div class="iconset top-menu-toggle-dark"></div>
+          <div class="iconset top-menu-toggle-white"></div>
           </a> </li>
       </ul>
       <!-- BEGIN LOGO -->
@@ -59,11 +51,11 @@ display:         flex;
       <!-- END LOGO -->
       <ul class="nav pull-right notifcation-center">
         <li class="dropdown" id="header_task_bar"> <a href="index.html" class="dropdown-toggle active" data-toggle="">
-          <div class="glyphicon glyphicon-home"></div>
+          <div class="iconset top-home"></div>
           </a> </li>
-<!--         <li class="dropdown" id="header_inbox_bar" > <a href="email.html" class="dropdown-toggle" >
+        <li class="dropdown" id="header_inbox_bar" > <a href="email.html" class="dropdown-toggle" >
           <div class="iconset top-messages"></div>
-          <span class="badge" id="msgs-badge">2</span> </a></li> -->
+          <span class="badge" id="msgs-badge">2</span> </a></li>
         <!-- <li class="dropdown" id="portrait-chat-toggler" style="display:none"> <a href="#sidr" class="chat-menu-toggle">
           <div class="iconset top-chat-white "></div>
           </a> </li> -->
@@ -109,7 +101,7 @@ display:         flex;
   <div class="page-sidebar" id="main-menu">
     <!-- BEGIN MINI-PROFILE -->
     <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
-<!--       <div class="user-info-wrapper">
+      <div class="user-info-wrapper">
         <div class="profile-wrapper"> <img src="assets/img/profiles/avatar.jpg"  alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" width="69" height="69" /> </div>
         <div class="user-info">
           <div class="greeting">Welcome</div>
@@ -118,12 +110,12 @@ display:         flex;
             <div class="status-icon green"></div>
             Online</a></div>
         </div>
-      </div> -->
+      </div>
       <!-- END MINI-PROFILE -->
       <!-- BEGIN SIDEBAR MENU -->
-      <p class="menu-title">BROWSE <span class="pull-right"></span></p>
+      <p class="menu-title">BROWSE <span class="pull-right"><a href="javascript:;"><i class="fa fa-refresh"></i></a></span></p>
       <ul>
-        <li class="start "> <a href="index.html" > <i class="glyphicon glyphicon-home"></i> <span class="title">Dashboard</span>  </a> 
+        <li class="start "> <a href="index.html" > <i class="icon-custom-home"></i> <span class="title">Dashboard</span> <span class="selected"></span> <span class="arrow open"></span> </a> 
 		      <!-- <ul class="sub-menu">
             <li > <a href="dashboard_v1.html"> Dashboard v1 </a> </li>
             <li class="active"> <a href="index.html "> Dashboard v2 <span class=" label label-info pull-right m-r-30">NEW</span></a></li>
@@ -180,7 +172,7 @@ display:         flex;
             <li > <a href="datatables.html"> Data Tables </a> </li>
           </ul>
         </li> -->
-        <li class=""> <a href="#"> <i class="glyphicon glyphicon-map-marker"></i> <span class="title">Campus Map</span> </a>
+        <li class=""> <a href="#"> <i class="icon-custom-map"></i> <span class="title">Campus Map</span> <span class="arrow "></span> </a>
           <!-- <ul class="sub-menu">
             <li > <a href="google_map.html"> Google Maps </a> </li>
             <li > <a href="vector_map.html"> Vector Maps </a> </li>
@@ -215,7 +207,7 @@ display:         flex;
             </li>
           </ul>
         </li> -->
-        <li class="hidden-lg hidden-md hidden-xs" id="more-widgets" > <a href="javascript:;"> <i class="glyphicon glyphicon-globe"></i></a>
+        <li class="hidden-lg hidden-md hidden-xs" id="more-widgets" > <a href="javascript:;"> <i class="fa fa-plus"></i></a>
           <ul class="sub-menu">
             <li class="side-bar-widgets">
               <p class="menu-title">TOURS <span class="pull-right"><a href="#" class="create-folder"><i class="icon-plus"></i></a></span></p>
@@ -236,13 +228,13 @@ display:         flex;
               <p class="menu-title">ONGOING PROJECTS </p>
               <div class="status-widget">
                 <div class="status-widget-wrapper">
-                  <div class="title">Temperature Study</div>
+                  <div class="title">Temperature Study<a href="#" class="remove-widget"><i class="icon-custom-cross"></i></a></div>
                   <p>Measuring rooftop surface temperatures</p>
                 </div>
               </div>
               <div class="status-widget">
                 <div class="status-widget-wrapper">
-                  <div class="title">Virtual Reality</div>
+                  <div class="title">Virtual Reality<a href="#" class="remove-widget"><i class="icon-custom-cross"></i></a></div>
                   <p>Virtual reality arboretum tours</p>
                 </div>
               </div>
@@ -251,7 +243,7 @@ display:         flex;
         </li>
       </ul>
       <div class="side-bar-widgets">
-        <p class="menu-title">TOURS</p>
+        <p class="menu-title">TOURS <span class="pull-right"><a href="#" class="create-folder"> <i class="fa fa-plus"></i></a></span></p>
         <ul class="folders" >
           <li><a href="#">
             <div class="status-icon green"></div>
@@ -269,13 +261,13 @@ display:         flex;
         <p class="menu-title">ONGOING PROJECTS </p>
         <div class="status-widget">
           <div class="status-widget-wrapper">
-            <div class="title">Temperature Study</div>
+            <div class="title">Temperature Study<a href="#" class="remove-widget"><i class="icon-custom-cross"></i></a></div>
             <p>Rooftop surface temperatures</p>
           </div>
         </div>
         <div class="status-widget">
           <div class="status-widget-wrapper">
-            <div class="title">Virtual Reality</div>
+            <div class="title">Virtual Reality<a href="#" class="remove-widget"><i class="icon-custom-cross"></i></a></div>
             <p>Virtual reality arboretum tours</p>
           </div>
         </div>
@@ -807,117 +799,60 @@ display:         flex;
         </div>
       </div>
           <!-- END WEATHER DETAIL VIEW WIDGET -->
-      <div class="row row-eq-height" >
+      <div class="row" style="display:none">
         <div class="col-md-12">
-          <div class="col-md-6 m-b-5 col-lg-6 col-sm-6">
-            <!-- BEGIN MINI WEATHER WIDGET -->
-  			    <div class="row  tiles-container">
-              <div class="col-md-5  col-xs-5 no-padding">
-                <div class="tiles red p-t-20">
-                  <canvas id="widget-partly-cloudy-day" width="64" height="64" class=" h-align-middle"></canvas>
-                  <h6 class="bold text-white text-center p-b-15">WEDNESDAY</h6>
-                </div>
-              </div>
-              <div class="col-md-7 col-xs-7 tiles white text-center">
-                  <h2 class="semi-bold text-error weather-widget-big-text no-margin p-t-20 p-b-10">34&deg;</h2>
-                  <div class="tiles-title blend m-b-5">CURRENTLY</div>
-                  <div class="pull-left m-l-15 ">
-                    <canvas id="widget-wind" width="16" height="16" class="inline"></canvas>
-                    <div class="inline">
-                      <h5 class="semi-bold no-margin ">54</h5>
-                      <p class="bold text-extra-small ">MPH</p>
-                    </div>
+        <div class="col-md-7 m-b-5 col-lg-6 col-sm-6">
+              <!-- BEGIN MINI WEATHER WIDGET -->
+			   <div class="row  tiles-container">
+                <div class="col-md-5  col-xs-5 no-padding">
+                  <div class="tiles red p-t-20">
+                    <canvas id="widget-partly-cloudy-day" width="64" height="64" class=" h-align-middle"></canvas>
+                    <h6 class="bold text-white text-center p-b-15">WEDNESDAY</h6>
                   </div>
-                  <div class="pull-right m-r-25">
-                    <canvas id="widget-sleet" width="16" height="16" class="inline"></canvas>
-                    <div class="inline">
-                      <h5 class="semi-bold no-margin ">53</h5>
-                      <p class="bold text-extra-small ">MM</p>
+                </div>
+                <div class="col-md-7 col-xs-7 tiles white text-center">
+                    <h2 class="semi-bold text-error weather-widget-big-text no-margin p-t-20 p-b-10">34&deg;</h2>
+                    <div class="tiles-title blend m-b-5">CURRENTLY</div>
+                    <div class="pull-left m-l-15 ">
+                      <canvas id="widget-wind" width="16" height="16" class="inline"></canvas>
+                      <div class="inline">
+                        <h5 class="semi-bold no-margin ">54</h5>
+                        <p class="bold text-extra-small ">MPH</p>
+                      </div>
                     </div>
+                    <div class="pull-right m-r-25">
+                      <canvas id="widget-sleet" width="16" height="16" class="inline"></canvas>
+                      <div class="inline">
+                        <h5 class="semi-bold no-margin ">53</h5>
+                        <p class="bold text-extra-small ">MM</p>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+              </div>
+			  <!-- END WEATHER DETAIL VIEW WIDGET -->	
+			</div>
+			<div class="col-md-5 col-lg-6 col-sm-6" style="display:none">     
+              <!-- BEGIN MINI WEATHER WIDGET -->
+			  <div class="row  tiles-container">    
+                <div class="col-md-7 col-xs-7">
+                  <div class="tiles white text-center">
+                    <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
+                    <div class="tiles-title blend p-b-25">CURRENTLY</div>
+                    <div class="clearfix"></div>
                   </div>
-                  <div class="clearfix"></div>
+                </div>
+				 <div class="col-md-5 col-xs-5 no-padding">
+                  <div class="tiles blue p-t-20">
+                    <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
+                    <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
+                  </div>
+                </div>
               </div>
+			  <!-- END WEATHER DETAIL VIEW WIDGET -->						
+			</div>	
             </div>
-  			    <!-- END WEATHER DETAIL VIEW WIDGET -->	
-  			  </div>
-  			  <div class="col-md-6 col-lg-6 col-sm-6">     
-            <!-- BEGIN MINI WEATHER WIDGET -->
-  			    <div class="row  tiles-container">    
-              <div class="col-md-7 col-xs-7">
-                <div class="tiles white text-center">
-                  <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
-                  <div class="tiles-title blend p-b-25">CURRENTLY</div>
-                  <div class="clearfix"></div>
-                </div>
-              </div>
-  				    <div class="col-md-5 col-xs-5 no-padding">
-                <div class="tiles blue p-t-20">
-                  <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
-                  <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
-                </div>
-              </div>
-            </div>
-  			   <!-- END WEATHER DETAIL VIEW WIDGET -->						
-  			  </div>
-          <div class="col-md-6 col-lg-6 col-sm-6">     
-            <!-- BEGIN MINI WEATHER WIDGET -->
-            <div class="row  tiles-container">    
-              <div class="col-md-7 col-xs-7">
-                <div class="tiles white text-center">
-                  <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
-                  <div class="tiles-title blend p-b-25">CURRENTLY</div>
-                  <div class="clearfix"></div>
-                </div>
-              </div>
-              <div class="col-md-5 col-xs-5 no-padding">
-                <div class="tiles blue p-t-20">
-                  <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
-                  <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
-                </div>
-              </div>
-            </div>
-           <!-- END WEATHER DETAIL VIEW WIDGET -->            
-          </div>  
-          <div class="col-md-6 col-lg-6 col-sm-6">     
-            <!-- BEGIN MINI WEATHER WIDGET -->
-            <div class="row  tiles-container">    
-              <div class="col-md-7 col-xs-7">
-                <div class="tiles white text-center">
-                  <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
-                  <div class="tiles-title blend p-b-25">CURRENTLY</div>
-                  <div class="clearfix"></div>
-                </div>
-              </div>
-              <div class="col-md-5 col-xs-5 no-padding">
-                <div class="tiles blue p-t-20">
-                  <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
-                  <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
-                </div>
-              </div>
-            </div>
-           <!-- END WEATHER DETAIL VIEW WIDGET -->            
-          </div>
-          <div class="col-md-6 col-lg-6 col-sm-6">     
-            <!-- BEGIN MINI WEATHER WIDGET -->
-            <div class="row  tiles-container">    
-              <div class="col-md-7 col-xs-7">
-                <div class="tiles white text-center">
-                  <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
-                  <div class="tiles-title blend p-b-25">CURRENTLY</div>
-                  <div class="clearfix"></div>
-                </div>
-              </div>
-              <div class="col-md-5 col-xs-5 no-padding">
-                <div class="tiles blue p-t-20">
-                  <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
-                  <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
-                </div>
-              </div>
-            </div>
-           <!-- END WEATHER DETAIL VIEW WIDGET -->            
-          </div>  	
         </div>
-      </div>
 		  <div class="row" style="display:none">
 			<div class="col-md-12 m-b-10">					
 				<!-- BEGIN SALES WIDGET WITH FLOT CHART -->
@@ -1169,41 +1104,9 @@ display:         flex;
 			</div>
           
 		  </div>
-  <!-- #footer/ -->
-  <footer id="footer" role="contentinfo">
-    <div class="row clearfix">
-      <div id="footer-utility-links">
-        <div role="navigation" aria-label="Site Utility" class="gt-footer-utility-links-wrapper login-link-included">
-          <ul class="menu gt-footer-utility-links">
-            <li class="menu-378 first last"><a href="http://www.space.gatech.edu/contact-us" title="">Contact Us</a></li>
-          </ul>
-        </div>
-        <div class="gt-footer-legal-links-wrapper" role="navigation" aria-label="Legal">
-          <ul class="menu gt-footer-legal-links custom-links-included login-link-included">
-            <li class="first"><a href="http://www.gatech.edu/emergency/">Emergency Information</a></li>
-            <li><a href="http://www.gatech.edu/legal/">Legal &amp; Privacy Information</a></li>
-            <li><a href="http://www.gatech.edu/accessibility/">Accessibility</a></li>
-            <li><a href="http://www.gatech.edu/accountability/">Accountability</a></li>
-            <li><a href="https://www.gatech.edu/accreditation/">Accreditation</a></li>
-            <li class="last"><a href="http://www.careers.gatech.edu">Employment</a></li>
-          </ul>
-        </div>
-<!--         <div class="gt-footer-login-links-wrapper" role="navigation" aria-label="Log in">
-          <ul class="menu gt-footer-login-links">
-            <li class="gt-site-login first"><a href="/cas">GT Login</a></li>
-            <li class="site-login last"><a href="/user">Standard Login</a></li>
-          </ul>
-        </div> -->
-      </div>
-      <div id="footer-logo">
-        <a href="http://www.gatech.edu/"><img alt="Georgia Tech" src="assets/img/gt-logo-footer-retina.png" /></a>
-        <p>&copy; 2015 Georgia Institute of Technology</p>
-      </div>
-    </div>
-  </footer>  <!-- /#footer -->
 
-</div>
 
+	   </div>
 		  </div>
 <!-- BEGIN CHAT --> 
 <div class="chat-window-wrapper" style="display:none">
@@ -1485,13 +1388,14 @@ display:         flex;
             $(".live-tile,.flip-list").liveTile();
         });
 </script>
-
 <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
 <script type="text/javascript">
   // Create a connection to your Firebase database
   var ref = new Firebase("https://gtarboretum.firebaseio.com");
   var theCards;
-  var currentTour = null;
+  var currentLocation = 0;
+  // // Save data
+  // ref.set({ name: "Alex Wolfe" });
 
   // Listen for realtime changes
   ref.on("value", function(data) {
@@ -1499,131 +1403,28 @@ display:         flex;
     var wrapperApplied = false;
     var numInfo = 1;
 
-    //  Globals which should be set before calling this function:
-    //
-    //  int    polyCorners  =  how many corners the polygon has
-    //  float  polyX[]      =  horizontal coordinates of corners
-    //  float  polyY[]      =  vertical coordinates of corners
-    //  float  x, y         =  point to be tested
-    //
-    //  (Globals are used in this example for purposes of speed.  Change as
-    //  desired.)
-    //
-    //  The function will return YES if the point x,y is inside the polygon, or
-    //  NO if it is not.  If the point is exactly on the edge of the polygon,
-    //  then the function may return YES or NO.
-    //
-    //  Note that division by zero is avoided because the division is protected
-    //  by the "if" clause which surrounds it.
-
-    function insidePolygon(point, vs) {
-        // ray-casting algorithm based on
-        // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
-
-        var x = point['x'], y = point['y'];
-
-        var inside = false;
-        for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
-            var xi = vs[i]['x'], yi = vs[i]['y'];
-            var xj = vs[j]['x'], yj = vs[j]['y'];
-
-            var intersect = ((yi > y) != (yj > y))
-                && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-            if (intersect) inside = !inside;
-        }
-
-        return inside;
-    }
-
-    function getStatistics(statList,points,data,injectionFunc){
-      var cardData = [753,12312,4562];
-      injectionFunc(data,cardData);
-    }
-
-
-    function injectTourCardHTML(data,tourData){
-      $("#tourRow").html(" \
-<div class='col-md-12 col-vlg-12 col-sm-12'> \
-  <div class='tiles "+data.color+" m-b-10'> \
-    <div class='tiles-body'> \
-      <div class='controller'> \
-        <a href='javascript:;' class='reload'></a> \
-        <a href='javascript:;' class='remove'></a> \
-      </div> \
-      <div class='tiles-title text-black'>"+data.name+" </div> \
-      <div class='widget-stats'> \
-        <div class='wrapper transparent'> \
-          <span class='item-title'>"+data.data[0].name+"</span> \
-          <span class='item-count animate-number semi-bold' data-value='753' data-animation-duration='700'>"+tourData[0]+"</span> \
-        </div> \
-      </div> \
-      <div class='widget-stats'> \
-        <div class='wrapper transparent'> \
-          <span class='item-title'>"+data.data[1].name+"</span> \
-          <span class='item-count animate-number semi-bold' data-value='1197325' data-animation-duration='700'>"+tourData[1]+"</span> \
-        </div> \
-      </div> \
-      <div class='widget-stats '> \
-        <div class='wrapper last'> \
-          <span class='item-title'>"+data.data[2].name+"</span> \
-          <span class='item-count animate-number semi-bold' data-value='547' data-animation-duration='700'>"+tourData[2]+"</span> \
-        </div> \
-      </div> \
-      <div class='progress transparent progress-small no-radius m-t-20' style='width:90%'> \
-        <div class='progress-bar progress-bar-white animate-progress-bar' data-percentage='64.8%' ></div> \
-      </div> \
-      <div class='description'> \
-        <span class='text-white mini-description '> \
-          4% higher <span class='blend'>than last month</span> \
-        </span> \
-      </div> \
-    </div> \
-  </div> \
-</div>");
-    }
+    // for (j = 0; j < data.val().menu.length; j++) {
+    //   // TODO: Implement sidebar menu
+    // }
     
-    theCards = Object.keys(data.val().cards);
-
+    function insertTourCard(data, currentCard){
+      $("#tourRow").html("<div class='col-md-12 col-vlg-12 col-sm-12'><div class='tiles "+data.val()[currentCard].color+" m-b-10'><div class='tiles-body'><div class='controller'> <a href='javascript:;' class='reload'></a> <a href='javascript:;' class='remove'></a> </div><div class='tiles-title text-black'>"+data.val()[currentCard].name+" </div><div class='widget-stats'><div class='wrapper transparent'><span class='item-title'>"+data.val()[currentCard].label1.name+"</span> <span class='item-count animate-number semi-bold' data-value='753' data-animation-duration='700'>753</span></div></div><div class='widget-stats'><div class='wrapper transparent'><span class='item-title'>"+data.val()[currentCard].label2.name+"</span> <span class='item-count animate-number semi-bold' data-value='1197325' data-animation-duration='700'>1197325</span></div></div><div class='widget-stats '><div class='wrapper last'><span class='item-title'>"+data.val()[currentCard].label3.name+"</span> <span class='item-count animate-number semi-bold' data-value='547' data-animation-duration='700'>547</span></div></div><div class='progress transparent progress-small no-radius m-t-20' style='width:90%'><div class='progress-bar progress-bar-white animate-progress-bar' data-percentage='64.8%' ></div></div><div class='description'> <span class='text-white mini-description '>4% higher <span class='blend'>than last month</span></span></div></div></div></div>");
+    }
+    theCards = Object.keys(data.val())
     console.log(theCards);
-    
     for (var i=0; i < theCards.length;i++){
-
-      // If my location is inside the area polygon defined by the card
-      var isInside = insidePolygon(data.val().globalValues[data.val().globalValues.aMyLocation],data.val().cards[theCards[i]].location);
-      // console.log(currentCard + ' Am I inside that? ' + isInside);
-      if (isInside){
-        var currentCard = theCards[i];
-        
-        // Check if you're inside a new tour area
-        if (data.val().cards[currentCard].type =='tour_summary' && currentCard != currentTour){
-          // Fade out the old tour card, fetch new data and insert the new tour card.
+      if (theCards[i] != 'aMyLocation' && data.val()[theCards[i]].location == data.val().aMyLocation){
+        currentCard = theCards[i];
+        console.log("INSERTED");
+        if (data.val().aMyLocation != currentLocation){
           $('#tourRow div').fadeOut("fast",function(){
-            console.log('inserting '+currentCard);
-            var statList = [];
-            for (cardData in data.val().cards[currentCard].data){
-              statList.push(cardData.type);
-            }
-
-            getStatistics(statList,
-                          data.val().cards[currentCard].location,
-                          data.val().cards[currentCard],
-                          injectTourCardHTML);
+            insertTourCard(data, currentCard);
           });
-          currentTour = currentCard;
+          currentLocation = data.val().aMyLocation;
         }else{
-          // If you're not in a new tour area, or this card isn't even a tour_summary card then just insert the card. 
-          
-          // Generate the list of statistics this card needs.
-          var statList = [];
-          for (cardData in data.val().cards[currentCard].data){
-            statList.push(cardData.type);
-          }
-          // Query those statistics from GIS and inject this card into the HTML on the callback.
-          getStatistics(statList,
-                        data.val().cards[currentCard].location,
-                        data.val().cards[currentCard],
-                        injectTourCardHTML);
+          insertTourCard(data, currentCard);
         }
+        
       }
     }
   });
