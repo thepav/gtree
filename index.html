@@ -998,72 +998,14 @@ display:         flex;
          </div>
 		  <div class="row hidden-xlg">
 			<div class="col-md-12 m-b-10" style="display:none">	
-					<!-- BEGIN SALES WIDGET WITH FLOT CHART 2-->			
-					<div class="tiles white add-margin">
-						<div class="p-t-20 p-l-20 p-r-20 p-b-20">
-						<div class="row b-grey b-b xs-p-b-20">
-						<div class="col-md-4 col-sm-4">
 
-							<h4 class="text-black semi-bold">Total Visits</h4>
-							<h3 class="text-error semi-bold">25,850</h3>
-						</div>
-						<div class="col-md-3 col-sm-3">
-						<div class="m-t-20">
-							<h5 class="text-black semi-bold">Today</h5>
-							<h4 class="text-error semi-bold">1,900</h4>
-						</div>
-						</div>
-						<div class="col-md-5 col-sm-5">
-						<div class="m-t-20">
-							<input type="text" class="dark form-control" id="txtinput4" placeholder="Search">
-						</div>
-						</div>
-						</div>
-						
-						<div class="row b-grey">
-						<div class="col-md-3 col-sm-3">
-						<div class="m-t-10">
-							<p class="text-error">Open</p>
-							<p class="text-black">15:25:56</p>
-						</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-						<div class="m-t-10">
-							<p class="text-error">Day Range</p>
-							<p class="text-black">01.02.2014 - 01.1.2015</p>
-						</div>
-						</div>
-						<div class="col-md-5 col-sm-5">
-						<div class="m-t-10">
-							
-							<div class="pull-left">
-							Cash
-							</div>
-							<div class="pull-right">
-							<span class="text-error">$10,525</span>
-							</div>
-							<div class="clearfix"></div>
-							<div class="pull-left">
-							Visa Classic
-							</div>
-							<div class="pull-right">
-							<span class="text-error">$5,989</span>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						</div>
-						</div>
-
-						</div>
-						<div class="tiles grey" id="sales_chart_alt" style="height: 260px;position: relative;width:100%">	</div>
-					</div>
-					 <!-- END SALES WIDGET WITH FLOT CHART -->
 			</div>
 		</div>
 
   </div>
 
   <div id='info' class="row row-height" >
+
   </div>
 
 
@@ -1487,16 +1429,20 @@ display:         flex;
       var title1 = data.title.split(' ')[0];
       var title2 = data.title.substring(title1.length); 
 
-      $('#info').append("<div class='col-md-4' style='max-height:450px;min-height:450px;'><div class='grid simple'><div class='grid-title no-border'><h4>"+data.name+"</h4><div class='tools'><a href='#' class='reload'></a><a href='#' class='remove'></a></div></div><div class='grid-body no-border'><h4>"+title1+"<span class='semi-bold'>"+title2+"</span></h4><p>"+ data.body +"</p><div id='"+cardID+"-donut-chart' style='height:200px;'> </div></div></div></div>");
+      $('#info').append("<div id='"+cardID+"' class='col-md-4' style='max-height:450px;min-height:450px;'><div class='grid simple'><div class='grid-title no-border'><h4>"+data.name+"</h4><div class='tools'><a href='#' class='reload'></a><a href='#' class='remove'></a></div></div><div class='grid-body no-border'><h4>"+title1+"<span class='semi-bold'>"+title2+"</span></h4><p>"+ data.body +"</p><div id='"+cardID+"-donut-chart' style='height:200px;'> </div></div></div></div>");
+
+      var trees = Object.keys(cardData[0]);
+      var data = [];
+      for(var i=0;i<trees.length;i++){
+        var lab = trees[i];
+        var val = cardData[0][trees[i]];
+        data.push({label:lab,value:val});
+      }
 
       Morris.Donut({
         element: cardID+'-donut-chart',
-        data: [
-        {label: 'Download Sales', value: 12},
-        {label: 'In-Store Sales', value: 30},
-        {label: 'Mail-Order Sales', value: 20}
-        ],
-        colors:['#60bfb6','#91cdec','#eceff1']
+        data: data,
+        colors:['#60bfb6','#91cdec','#eceff1','#eeb211']
       });
     }
     
@@ -1517,6 +1463,7 @@ display:         flex;
         if (data.val().cards[currentCard].type =='tour_summary' && currentCard != currentTour){
 
           // Fade out the old tour card, fetch new data and insert the new tour card.
+          $('#tourRow div').fadeOut('fast');
           console.log('inserting '+currentCard);
           var statList = [];
           cardData = data.val().cards[currentCard].data;
@@ -1539,6 +1486,11 @@ display:         flex;
         // If there is a data field inside this card, we will query the data first.
         }else if ($.inArray('data',Object.keys(data.val().cards[currentCard]))) {
           console.log('not tour_summary or new tour summary and has data');
+          // Remove card if it already exists
+          if ($('#'+currentCard).length){
+              $('#'+currentCard).fadeOut('fast');
+          }
+
           // If you're not in a new tour area, or this card isn't even a tour_summary card then just insert the card. 
           
           // Generate the list of statistics this card needs.
@@ -1573,7 +1525,41 @@ display:         flex;
   var storiesRef = new Firebase("https://gtarboretum.firebaseio.com/stories");
   storiesRef.on("value", function(data) {
     function createStoryCard(story) {
-      var htmlElement = '<div class="col-md-4 m-b-10"><div class="widget-item "><div class="controller overlay right"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div><div class="tiles green  overflow-hidden full-height" style="max-height:214px"><div class="overlayer bottom-right fullwidth"><div class="overlayer-wrapper"><div class="tiles gradient-black p-l-20 p-r-20 p-b-20 p-t-20"><div class="pull-right"> <a href="#" class="hashtags transparent"> #' + story.tags[0] + '</a> </div><div class="clearfix"></div></div></div></div><img src="' + story.file + '" alt="" class="lazy hover-effect-img" width="100%" > </div><div class="tiles white "><div class="tiles-body"><div class="row"><div class="user-profile-pic text-left" style="display:none"> <img width="69" height="69"alt=""> <div class="pull-right m-r-20 m-t-35" style="display:none"> <span class="bold text-black small-text">24m</span> </div></div><div class="col-md-5 no-padding"><div class="user-comment-wrapper"><div class="comment"><div class="user-name text-black bold">' +  story.name + '</div><div class="preview-wrapper" style="display:none">@ revox </div></div><div class="clearfix"></div></div></div><div class="col-md-7 no-padding"><div class="clearfix"></div><div class="m-r-20 m-t-20 m-b-10  m-l-10"><p class="p-b-10">' + story.story + '</p>';
+      var htmlElement = '\
+      <div class="col-md-4 col-s-6 m-b-10"> \
+        <div class="widget-item storycard"> \
+          <div class="controller overlay right"> \
+            <a href="javascript:;" class="reload"></a> \
+            <a href="javascript:;" class="remove"></a> \
+          </div> \
+          <div class="tiles green  overflow-hidden full-height" style="max-height:214px"> \
+            <div class="overlayer bottom-right fullwidth"> \
+              <div class="overlayer-wrapper"> \
+                <div class="tiles gradient-black p-l-20 p-r-20 p-b-20 p-t-20"> \
+                  <div class="pull-right"> \
+                    <a href="#" class="hashtags transparent"> #' + story.tags[0] + '</a> \
+                  </div> \
+                  <div class="clearfix"></div> \
+                </div> \
+              </div> \
+            </div> \
+            <img src="' + story.file + '" alt="" class="lazy hover-effect-img" width="100%" > \
+          </div> \
+          <div class="tiles white" style="max-height:186px; min-height:186px;"> \
+            <div class="tiles-body full-height"> \
+              <div class="row"> \
+                <div class="col-md-5 no-padding"> \
+                  <div class="user-comment-wrapper"> \
+                    <div class="comment"> \
+                      <div class="user-name text-black bold">' +  story.name + '</div> \
+                    </div> \
+                    <div class="clearfix"></div> \
+                  </div> \
+                </div> \
+                <div class="col-md-7 no-padding"> \
+                  <div class="clearfix"></div> \
+                  <div class="m-r-20 m-t-20 m-b-10  m-l-10"> \
+                    <p class="p-b-10">' + story.story + '</p>';
 
       for (tag in story.tags) {
         htmlElement = htmlElement + '<a href="#" class="hashtags m-b-5"> #' + story.tags[tag] + '</a>';

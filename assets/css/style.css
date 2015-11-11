@@ -24,7 +24,7 @@ html {
 }
 body {
   direction: ltr;
-  background-color: #1b1e24;
+  background-color: #262626;
   color: #6f7b8a;
   font-family: 'Arial';
   font-size: 13px;
@@ -8269,4 +8269,9 @@ body.rtl .footer-widget {
   .col-lg-bottom {
     vertical-align: bottom;
   }
+}
+
+.storycard {
+  max-height: 400px;
+  min-height: 400px;
 }
