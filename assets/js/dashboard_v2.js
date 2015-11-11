@@ -2,14 +2,14 @@
 /* This JS is only for DEMO Purposes - Extract the code that you need
 -----------------------------------------------------------------*/	
 $(document).ready(function() {	
-loadServerChart();
+//loadServerChart();
 //drawMouseSpeedDemo();
-loadSalesGraph();
-loadSalesSparkline();
-loadShareMarketGraph();
-loadShareMarketGraph_Demo2();
-loadAnimatedWeatherIcons();
-loadAnimatedWidget_pure_white();
+//loadSalesGraph();
+//loadSalesSparkline();
+//loadShareMarketGraph();
+//loadShareMarketGraph_Demo2();
+//loadAnimatedWeatherIcons();
+//loadAnimatedWidget_pure_white();
 //loadSampleChart();
 //loadSampleChartDemo2();
 loadLocationMaps();

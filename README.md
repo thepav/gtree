@@ -7,7 +7,7 @@ GTree
   * 'name' - The name of the tour that will display to the user.
   * 'type' - This must be 'tour_summary'
   * 'color' - A plain text color that will be the background of the card.  
-  * 'data' - a list of dictionaries with 'name' and 'type' fields  
+  * 'data' - a list of 3 dictionaries with 'name' and 'type' fields  
     * 'name' will denote the label shown to the user.  
     * 'type' denotes the GTree datatype (see bellow) that will be shown for this data value.
   * 'location' - a list of dictionaries with 'x' and 'y' fields representing a polygon that bounds an area in which the card will appear. 
