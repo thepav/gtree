@@ -1544,6 +1544,7 @@ display:         flex;
 
 
     function injectTourCardHTML(data,tourData){
+      console.log('the data I got back from GIS for '+data.name+' '+tourData);
       $("#tourRow").html(" \
 <div class='col-md-12 col-vlg-12 col-sm-12'> \
   <div class='tiles "+data.color+" m-b-10'> \
@@ -1592,12 +1593,11 @@ display:         flex;
 
       // If my location is inside the area polygon defined by the card
       var isInside = insidePolygon(data.val().globalValues[data.val().globalValues.aMyLocation],data.val().cards[theCards[i]].location);
-      // console.log(currentCard + ' Am I inside that? ' + isInside);
       if (isInside){
         var currentCard = theCards[i];
-        
         // Check if you're inside a new tour area
         if (data.val().cards[currentCard].type =='tour_summary' && currentCard != currentTour){
+
           // Fade out the old tour card, fetch new data and insert the new tour card.
           $('#tourRow div').fadeOut("fast",function(){
             console.log('inserting '+currentCard);
@@ -1606,11 +1606,17 @@ display:         flex;
             for (var j=0;j< cardData.length;j++){
               statList.push(cardData[j].type);
             }
-            console.log('the date i pass in '+statList);
-
+            
+            var locationArea = [];
+            for (var j=0;j< data.val().cards[currentCard].location.length;j++){
+              locationArea.push([ data.val().cards[currentCard].location[j]['x'],data.val().cards[currentCard].location[j]['y'] ]);
+            }
+            console.log('the data i pass in statList: '+statList);
+            console.log(''+locationArea);
+            console.log(locationArea);
 
             getStatistics(statList,
-                          data.val().cards[currentCard].location,
+                          locationArea,
                           data.val().cards[currentCard],
                           injectTourCardHTML);
           });
