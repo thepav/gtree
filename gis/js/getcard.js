@@ -39,12 +39,32 @@ function distribution_func(features){
 	}
 	return speciesdist;
 }
+function species_func(features){
+	var speciesdist = {};
+	var speciescount = 0;
+	for (f=0; f<features.length;f++)
+	{
+		var fattr = features[f].attributes;
+		var speciesname = fattr.COMMONNAME;
+		if (speciesdist[speciesname] == null)
+		{
+			speciescount += 1;
+			speciesdist[speciesname] = 1;	
+		}
+		else
+		{
+			speciesdist[speciesname] += 1;				
+		}
+	}
+	return speciescount;
+}
 
 var typeDict = {
 	'tree_count':[tree_count_func,[]],
 	'leaf_area':[leaf_area_func,["CanopyRadiusFT"]],
 	'total_height':[total_height_func,["TOTHT"]],
-	'distibution':[distribution_func,["COMMONNAME"]]
+	'distibution':[distribution_func,["COMMONNAME"]],
+	'num_species':[species_func,["COMMONNAME"]]
 }
 
 function getStatistics(statList,points,data,injectionFunc)
@@ -58,7 +78,6 @@ function getStatistics(statList,points,data,injectionFunc)
 	 	queryTask = new QueryTask("http://tulip.gis.gatech.edu:6080/arcgis/rest/services/zGT/TreeBasemap/MapServer/1");
 		var of = getOutFuncList(statList);
 		query.outFields = of[0];	
-		query.where = "TOTHT > 30";
 		query.returnGeometry = true;
     	query.spatialRelationship = Query.SPATIAL_REL_ENVELOPEINTERSECTS;
 		var mpJson ={"points":points,"spatialReference":({" wkid":4326 })};
