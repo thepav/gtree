@@ -4,12 +4,12 @@
 $(document).ready(function() {	
 loadServerChart();
 //drawMouseSpeedDemo();
-loadSalesGraph();
-loadSalesSparkline();
-loadShareMarketGraph();
-loadShareMarketGraph_Demo2();
-loadAnimatedWeatherIcons();
-loadAnimatedWidget_pure_white();
+//loadSalesGraph();
+//loadSalesSparkline();
+//loadShareMarketGraph();
+//loadShareMarketGraph_Demo2();
+//loadAnimatedWeatherIcons();
+//loadAnimatedWidget_pure_white();
 //loadSampleChart();
 //loadSampleChartDemo2();
 loadLocationMaps();
