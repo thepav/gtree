@@ -155,7 +155,7 @@ body.modal-open .chat-window-wrapper {
   position: relative;
 }
 .header-seperation {
-  background-color: #22262e;
+  background-color: #eeb211;
 }
 .header {
   -webkit-transition: -webkit-transform 0.3s ease, left 0.3s ease, right 0.3s ease;
@@ -240,7 +240,8 @@ body.modal-open .chat-window-wrapper {
   color: #ffffff;
 }
 .header .nav > li.dropdown .active {
-  background-color: #0d0f12;
+  background-color: #eeb211;
+  color: #262626;
 }
 .header .nav > li.dropdown.user .dropdown-toggle {
   padding: 8px 4px 7px 9px;
@@ -294,7 +295,7 @@ body.modal-open .chat-window-wrapper {
   height: 12px !important;
 }
 .header .notifcation-center {
-  background-color: #1b1e24;
+  background-color: #eeb211;
   margin-top: 12px;
   margin-right: 15px !important;
   display: inline-flex;
@@ -428,7 +429,7 @@ body.modal-open .chat-window-wrapper {
   padding-top: 14px;
 }
 .menu-title {
-  color: #808285;
+  color: #eeb211;
   font-size: 10.5px;
   padding-left: 31px;
   padding-right: 31px;
@@ -438,7 +439,7 @@ body.modal-open .chat-window-wrapper {
   letter-spacing: 0.2px;
 }
 .menu-title a {
-  color: #808285;
+  color: #eeb211;
 }
 .menu-title a:hover {
   text-decoration: none;
@@ -448,7 +449,7 @@ body.modal-open .chat-window-wrapper {
   font-weight: normal;
 }
 .page-sidebar {
-  background-color: #1b1e24 !important;
+  background-color: #262626 !important;
   height: 100%;
   font-family: 'Open Sans';
   -webkit-backface-visibility: hidden;
@@ -463,7 +464,7 @@ body.modal-open .chat-window-wrapper {
   width: 45px;
   position: absolute;
   height: 100%;
-  background-color: #0aa699 !important;
+  background-color: #262626 !important;
 }
 .page-sidebar .inner-menu {
   display: inline-block;
@@ -488,7 +489,7 @@ body.modal-open .chat-window-wrapper {
   border: 0px;
 }
 .page-sidebar .page-sidebar-wrapper > ul > li > a {
-  color: #8b91a0;
+  color: #eeb211;
   display: block;
   position: relative;
   margin: 0;
@@ -522,7 +523,7 @@ body.modal-open .chat-window-wrapper {
   border-bottom: 1px solid transparent !important;
 }
 .page-sidebar .page-sidebar-wrapper > ul > li a i {
-  color: #8b91a0;
+  color: #eeb211;
   width: 20px;
   text-align: center;
   display: inline-block;
@@ -566,7 +567,7 @@ body.modal-open .chat-window-wrapper {
   margin: 0px 0px 0px 0px;
   padding: 5px 0px;
   padding-left: 53px !important;
-  color: #e1eaf1;
+  color: #eeb211;
   text-decoration: none;
   text-shadow: 0 1px 1px #000;
   font-size: 13px;
@@ -639,7 +640,7 @@ body.modal-open .chat-window-wrapper {
 .page-sidebar.mini {
   width: 50px;
   overflow: visible !important;
-  background-color: #0aa699 !important;
+  background-color: #262626 !important;
   height: 100%;
   margin-top: 0;
   position: fixed;
@@ -720,7 +721,7 @@ body.modal-open .chat-window-wrapper {
 .page-sidebar ul.folders > li > a {
   padding: 5px 31px;
   font-size: 13px;
-  color: #ffffff;
+  color: #eeb211;
   display: block;
   position: relative;
 }
@@ -1492,7 +1493,7 @@ body.modal-open .chat-window-wrapper {
   animation-duration: 0.3s !important;
 }
 .status-widget .title {
-  color: #ffffff;
+  color: #eeb211;
   font-size: 13px;
 }
 .status-widget .title i {
@@ -1500,14 +1501,14 @@ body.modal-open .chat-window-wrapper {
   font-size: 7px;
   margin-top: 6px;
   margin-right: 6px;
-  color: #8b8f92;
+  color: #eeb211;
 }
 .status-widget p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 95%;
-  color: #808285;
+  color: #ffffff;
 }
 .status-widget .progress {
   height: 10px;
