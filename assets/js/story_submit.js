@@ -26,37 +26,55 @@ function storySubmit() {
 	var story = $('#story').val();
 	var tags = $('#source-tags').val().split(",");
 	var file = document.getElementById('story-image').files[0];
-	var reader = new FileReader();
+	var ref = new Firebase("https://gtarboretum.firebaseio.com");
+	var storiesRef = ref.child("stories");
 
-	reader.onloadend = function() {
-		var ref = new Firebase("https://gtarboretum.firebaseio.com");
-		var storiesRef = ref.child("stories");
-		storiesRef.push({name: name, email: email, story: story, tags: tags, file: reader.result, visible: false}, function(){
-           window.location.href = "index.html"; 
-        });
-        
-
-    };
-
-    if (file) {
-    	reader.readAsDataURL(file);
-    }
-
-	return false;
+	if (file) {
+		loadImage.parseMetaData(file, function (data) {
+			var imgOrientation = data.exif.get('Orientation');
+			loadImage(
+				file,
+				function (canvas) {
+					storiesRef.push({name: name, email: email, story: story, tags: tags, file: canvas.toDataURL(), visible: false}, 
+						function() {
+							window.location.href = "index.html"; 
+						});
+				},
+				{
+					maxWidth: (imgOrientation < 5) ? 800 : 600,
+					maxHeight: (imgOrientation < 5) ? 600 : 800,
+					canvas: true,
+					orientation: imgOrientation
+				}
+			);
+		});
+	} else {
+		storiesRef.push({name: name, email: email, story: story, tags: tags, file: "", visible: false}, 
+						function() {
+							window.location.href = "index.html"; 
+						});
+	}
 }
 
 function handleFileSelect(evt) {
 	var files = evt.target.files;
 	var file = files[0];
-	var reader = new FileReader();
 
-	reader.onloadend = function() {
-		var preview = document.getElementById('image-preview');
-		preview.src = reader.result;
-		preview.display = "initial";
-    };
+	var preview = document.getElementById('image-preview');
+	loadImage.parseMetaData(file, function (data) {
+		var imgOrientation = data.exif.get('Orientation');
+		loadImage(
+			file,
+			function (canvas) {
+				preview.src = canvas.toDataURL();
+			},
+			{
+				maxWidth: (imgOrientation < 5) ? 800 : 600,
+				maxHeight: (imgOrientation < 5) ? 600 : 800,
+				canvas: true,
+				orientation: imgOrientation
+			}
+		);
+	});
 
-    if (file) {
-    	reader.readAsDataURL(files[0]);
-    }
 }

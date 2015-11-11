@@ -1170,10 +1170,8 @@ display:         flex;
 
 
 </div>
-	   <div class="row hidden-xlg">
-             <div class="row" id="stories-row">
+        <div class="row" id="stories-row">
 			  </div>
-			</div>
           
 		  </div>
   <!-- #footer/ -->
@@ -1643,7 +1641,7 @@ display:         flex;
 
   var storiesRef = new Firebase("https://gtarboretum.firebaseio.com/stories");
   storiesRef.on("value", function(data) {
-    function insertStoryCard(story) {
+    function createStoryCard(story) {
       var htmlElement = '<div class="col-md-4 m-b-10"><div class="widget-item "><div class="controller overlay right"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div><div class="tiles green  overflow-hidden full-height" style="max-height:214px"><div class="overlayer bottom-right fullwidth"><div class="overlayer-wrapper"><div class="tiles gradient-black p-l-20 p-r-20 p-b-20 p-t-20"><div class="pull-right"> <a href="#" class="hashtags transparent"> #' + story.tags[0] + '</a> </div><div class="clearfix"></div></div></div></div><img src="' + story.file + '" alt="" class="lazy hover-effect-img" width="100%" > </div><div class="tiles white "><div class="tiles-body"><div class="row"><div class="user-profile-pic text-left" style="display:none"> <img width="69" height="69"alt=""> <div class="pull-right m-r-20 m-t-35" style="display:none"> <span class="bold text-black small-text">24m</span> </div></div><div class="col-md-5 no-padding"><div class="user-comment-wrapper"><div class="comment"><div class="user-name text-black bold">' +  story.name + '</div><div class="preview-wrapper" style="display:none">@ revox </div></div><div class="clearfix"></div></div></div><div class="col-md-7 no-padding"><div class="clearfix"></div><div class="m-r-20 m-t-20 m-b-10  m-l-10"><p class="p-b-10">' + story.story + '</p>';
 
       for (tag in story.tags) {
@@ -1652,18 +1650,21 @@ display:         flex;
 
       htmlElement = htmlElement + '</div></div></div></div></div></div></div>';
 
-      $("#stories-row").append(htmlElement);
+      return $(htmlElement);
     }
 
     $("#stories-row").empty();
 
     stories = data.val();
+    storyCards = [];
     for (var key in stories) {
       story = stories[key];
       if (story.visible) {
-        insertStoryCard(story);
+        storyCards.push(createStoryCard(story));
       }
     }
+    $('#stories-row').append(storyCards);
+    $('#stories-row').show();
   });
 </script>
 
