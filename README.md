@@ -60,19 +60,22 @@ GTree
 * Type Label: "tree_count"  
 * Description: The count of trees within the card's location.
 * Calculation Method: Query GIS objects in position point array and return count from GIS.
-####Tree Count
+####Leaf Area
 ------
 * Type Label: "leaf_area"  
 * Description: The canopy cover provided by all the trees in the given area.
 * Calculation Method: Query GIS objects in position point array, get CanopyRadiusFT value of each object and use 2 * PI * (CanopyRadiusFT)^2 value to get cover each tree. Return sum of all calculated canopy covers.
+####Total Height
 ------
-* Type Label: "leaf_area"  
+* Type Label: "total_height"  
 * Description: The total height of all the trees in the given area.
 * Calculation Method: Query GIS objects in position point array, get TOTHT value of each object. Return sum of all calculated height covers.
+#####Distribution
 ------
 * Type Label: "distribution"
 * Description: The numeric distribution of the tree species in the given area.
 * Calculation Method: Query GIS objects in position point array, get COMMONNAME for each tree, keep track of number of trees for each species. Return object pairing species name with species count.
+#Number of Species
 ------
 * Type Label: "num_species"
 * Description: The number of different tree species in the given area.
