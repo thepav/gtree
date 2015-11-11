@@ -8270,3 +8270,8 @@ body.rtl .footer-widget {
     vertical-align: bottom;
   }
 }
+
+.storycard {
+  max-height: 400px;
+  min-height: 400px;
+}
