@@ -7634,9 +7634,9 @@ input[type="checkbox"] {
   position: absolute;
   margin-top: 18%;
 }
-#footer {
+/*#footer {
   height: 130px;
-}
+}*/
 #gmaps_context_menu {
   text-align: center;
 }
