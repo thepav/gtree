@@ -88,7 +88,8 @@ function getStatistics(statList,points,data,injectionFunc)
 			retvals = [];
 			for (var i=0; i<funclist.length;i++){
 				var features = featureset.features;
-				retvals.push(funclist[i](features));
+				var val = Math.round(funclist[i](features) * 100) / 100
+				retvals.push(val);
 			}
 			injectionFunc(data, retvals);
 		});

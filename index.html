@@ -1624,14 +1624,25 @@ display:         flex;
           
           // Generate the list of statistics this card needs.
           var statList = [];
-          for (cardData in data.val().cards[currentCard].data){
-            statList.push(cardData.type);
+          cardData = data.val().cards[currentCard].data;
+          for (var j=0;j< cardData.length;j++){
+            statList.push(cardData[j].type);
           }
+          
+          var locationArea = [];
+          for (var j=0;j< data.val().cards[currentCard].location.length;j++){
+            locationArea.push([ data.val().cards[currentCard].location[j]['x'],data.val().cards[currentCard].location[j]['y'] ]);
+          }
+          console.log('the data i pass in statList: '+statList);
+          console.log(''+locationArea);
+          console.log(locationArea);
+
           // Query those statistics from GIS and inject this card into the HTML on the callback.
           getStatistics(statList,
-                        data.val().cards[currentCard].location,
+                        locationArea,
                         data.val().cards[currentCard],
                         injectTourCardHTML);
+        
         }
       }
     }
