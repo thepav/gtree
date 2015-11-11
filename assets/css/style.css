@@ -5636,6 +5636,9 @@ form legend,
 .tiles.blue {
   background-color: #0090d9;
 }
+.tiles.buzzyellow {
+  background-color: #eeb211;
+}
 .tiles.green {
   background-color: #0aa699;
 }

@@ -2,7 +2,7 @@
 /* This JS is only for DEMO Purposes - Extract the code that you need
 -----------------------------------------------------------------*/	
 $(document).ready(function() {	
-loadServerChart();
+//loadServerChart();
 //drawMouseSpeedDemo();
 //loadSalesGraph();
 //loadSalesSparkline();
