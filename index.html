@@ -17,6 +17,13 @@
 <link href="assets/plugins/jquery-slider/css/jquery.sidr.light.css" rel="stylesheet" type="text/css" media="screen"/>
 <link rel="stylesheet" href="assets/plugins/jquery-ricksaw-chart/css/rickshaw.css" type="text/css" media="screen" >
 <link rel="stylesheet" href="assets/plugins/Mapplic/mapplic/mapplic.css" type="text/css" media="screen" >
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+
 <!-- BEGIN CORE CSS FRAMEWORK -->
 <link href="assets/plugins/boostrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="assets/plugins/boostrapv3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
@@ -1056,116 +1063,7 @@ display:         flex;
 
   </div>
 
-  <div class="row row-height" >
-    <div class="col-md-12">
-    <div class="col-md-6 col-lg-6 col-sm-6 col-height">
-      <!-- BEGIN MINI WEATHER WIDGET -->
-      <div class="row  tiles-container">
-        <div class="col-md-5  col-xs-5 no-padding">
-          <div class="tiles red p-t-20">
-            <canvas id="widget-partly-cloudy-day" width="64" height="64" class=" h-align-middle"></canvas>
-            <h6 class="bold text-white text-center p-b-15">WEDNESDAY</h6>
-          </div>
-        </div>
-        <div class="col-md-7 col-xs-7 tiles white text-center">
-            <h2 class="semi-bold text-error weather-widget-big-text no-margin p-t-20 p-b-10">34&deg;</h2>
-            <div class="tiles-title blend m-b-5">CURRENTLY</div>
-            <div class="pull-left m-l-15 ">
-              <canvas id="widget-wind" width="16" height="16" class="inline"></canvas>
-              <div class="inline">
-                <h5 class="semi-bold no-margin ">54</h5>
-                <p class="bold text-extra-small ">MPH</p>
-              </div>
-            </div>
-            <div class="pull-right m-r-25">
-              <canvas id="widget-sleet" width="16" height="16" class="inline"></canvas>
-              <div class="inline">
-                <h5 class="semi-bold no-margin ">53</h5>
-                <p class="bold text-extra-small ">MM</p>
-              </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-      </div>
-      <!-- END WEATHER DETAIL VIEW WIDGET --> 
-    </div>
-    <div class="col-md-6 col-lg-6 col-sm-6 col-height">     
-      <!-- BEGIN MINI WEATHER WIDGET -->
-      <div class="row  tiles-container">    
-        <div class="col-md-7 col-xs-7">
-          <div class="tiles white text-center">
-            <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
-            <div class="tiles-title blend p-b-25">CURRENTLY</div>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-        <div class="col-md-5 col-xs-5 no-padding">
-          <div class="tiles blue p-t-20">
-            <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
-            <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
-          </div>
-        </div>
-      </div>
-     <!-- END WEATHER DETAIL VIEW WIDGET -->            
-    </div>
-    <div class="col-md-6 col-lg-6 col-sm-6 col-height">     
-      <!-- BEGIN MINI WEATHER WIDGET -->
-      <div class="row  tiles-container">    
-        <div class="col-md-7 col-xs-7">
-          <div class="tiles white text-center">
-            <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
-            <div class="tiles-title blend p-b-25">CURRENTLY</div>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-        <div class="col-md-5 col-xs-5 no-padding">
-          <div class="tiles blue p-t-20">
-            <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
-            <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
-          </div>
-        </div>
-      </div>
-     <!-- END WEATHER DETAIL VIEW WIDGET -->            
-    </div>  
-    <div class="col-md-6 col-lg-6 col-sm-6 col-height">     
-      <!-- BEGIN MINI WEATHER WIDGET -->
-      <div class="row  tiles-container">    
-        <div class="col-md-7 col-xs-7">
-          <div class="tiles white text-center">
-            <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
-            <div class="tiles-title blend p-b-25">CURRENTLY</div>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-        <div class="col-md-5 col-xs-5 no-padding">
-          <div class="tiles blue p-t-20">
-            <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
-            <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
-          </div>
-        </div>
-      </div>
-     <!-- END WEATHER DETAIL VIEW WIDGET -->            
-    </div>
-    <div class="col-md-6 col-lg-6 col-sm-6 col-height">     
-      <!-- BEGIN MINI WEATHER WIDGET -->
-      <div class="row  tiles-container">    
-        <div class="col-md-7 col-xs-7">
-          <div class="tiles white text-center">
-            <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
-            <div class="tiles-title blend p-b-25">CURRENTLY</div>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-        <div class="col-md-5 col-xs-5 no-padding">
-          <div class="tiles blue p-t-20">
-            <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
-            <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
-          </div>
-        </div>
-      </div>
-     <!-- END WEATHER DETAIL VIEW WIDGET -->            
-    </div>    
-    </div>
+  <div id='info' class="row row-height" >
   </div>
 
 
@@ -1541,7 +1439,7 @@ display:         flex;
     }
 
 
-    function injectTourCardHTML(data,tourData){
+    function injectTourCardHTML(cardID,data,tourData){
       console.log('the data I got back from GIS for '+data.name+' '+tourData);
       $("#tourRow").html(" \
 <div class='col-md-12 col-vlg-12 col-sm-12'> \
@@ -1582,11 +1480,33 @@ display:         flex;
   </div> \
 </div>");
     }
-    
-    theCards = Object.keys(data.val().cards);
 
-    console.log(theCards);
+    function injectPieChartCardHTML(cardID,data,cardData){
+      console.log('pie chart data I got back from GIS: '+cardData);
+      console.log(cardData);
+      var title1 = data.title.split(' ')[0];
+      var title2 = data.title.substring(title1.length); 
+
+      $('#info').append("<div class='col-md-4' style='max-height:450px;min-height:450px;'><div class='grid simple'><div class='grid-title no-border'><h4>"+data.name+"</h4><div class='tools'><a href='#' class='reload'></a><a href='#' class='remove'></a></div></div><div class='grid-body no-border'><h4>"+title1+"<span class='semi-bold'>"+title2+"</span></h4><p>"+ data.body +"</p><div id='"+cardID+"-donut-chart' style='height:200px;'> </div></div></div></div>");
+
+      Morris.Donut({
+        element: cardID+'-donut-chart',
+        data: [
+        {label: 'Download Sales', value: 12},
+        {label: 'In-Store Sales', value: 30},
+        {label: 'Mail-Order Sales', value: 20}
+        ],
+        colors:['#60bfb6','#91cdec','#eceff1']
+      });
+    }
     
+    var injectionFunctions = {
+                                'tour_summary':injectTourCardHTML,
+                                'pie_distribution':injectPieChartCardHTML
+                             };
+
+
+    theCards = Object.keys(data.val().cards);    
     for (var i=0; i < theCards.length;i++){
 
       // If my location is inside the area polygon defined by the card
@@ -1597,29 +1517,28 @@ display:         flex;
         if (data.val().cards[currentCard].type =='tour_summary' && currentCard != currentTour){
 
           // Fade out the old tour card, fetch new data and insert the new tour card.
-          $('#tourRow div').fadeOut("fast",function(){
-            console.log('inserting '+currentCard);
-            var statList = [];
-            cardData = data.val().cards[currentCard].data;
-            for (var j=0;j< cardData.length;j++){
-              statList.push(cardData[j].type);
-            }
-            
-            var locationArea = [];
-            for (var j=0;j< data.val().cards[currentCard].location.length;j++){
-              locationArea.push([ data.val().cards[currentCard].location[j]['x'],data.val().cards[currentCard].location[j]['y'] ]);
-            }
-            console.log('the data i pass in statList: '+statList);
-            console.log(''+locationArea);
-            console.log(locationArea);
+          console.log('inserting '+currentCard);
+          var statList = [];
+          cardData = data.val().cards[currentCard].data;
+          for (var j=0;j< cardData.length;j++){
+            statList.push(cardData[j].type);
+          }
+          
+          var locationArea = [];
+          for (var j=0;j< data.val().cards[currentCard].location.length;j++){
+            locationArea.push([ data.val().cards[currentCard].location[j]['x'],data.val().cards[currentCard].location[j]['y'] ]);
+          }
 
-            getStatistics(statList,
-                          locationArea,
-                          data.val().cards[currentCard],
-                          injectTourCardHTML);
-          });
+          getStatistics(statList,
+                        locationArea,
+                        data.val().cards[currentCard],
+                        currentCard,
+                        injectTourCardHTML);
           currentTour = currentCard;
-        }else{
+
+        // If there is a data field inside this card, we will query the data first.
+        }else if ($.inArray('data',Object.keys(data.val().cards[currentCard]))) {
+          console.log('not tour_summary or new tour summary and has data');
           // If you're not in a new tour area, or this card isn't even a tour_summary card then just insert the card. 
           
           // Generate the list of statistics this card needs.
@@ -1633,16 +1552,17 @@ display:         flex;
           for (var j=0;j< data.val().cards[currentCard].location.length;j++){
             locationArea.push([ data.val().cards[currentCard].location[j]['x'],data.val().cards[currentCard].location[j]['y'] ]);
           }
-          console.log('the data i pass in statList: '+statList);
-          console.log(''+locationArea);
-          console.log(locationArea);
 
           // Query those statistics from GIS and inject this card into the HTML on the callback.
           getStatistics(statList,
                         locationArea,
                         data.val().cards[currentCard],
-                        injectTourCardHTML);
-        
+                        currentCard,
+                        injectionFunctions[data.val().cards[currentCard].type]);
+
+        //If there is no data to query we simply inject the card.
+        }else{
+          injectionFunctions[data.val().cards[currentCard].type](currentCard,data.val().cards[currentCard]);
         }
       }
     }

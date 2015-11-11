@@ -63,13 +63,13 @@ var typeDict = {
 	'tree_count':[tree_count_func,[]],
 	'leaf_area':[leaf_area_func,["CanopyRadiusFT"]],
 	'total_height':[total_height_func,["TOTHT"]],
-	'distibution':[distribution_func,["COMMONNAME"]],
+	'tree_distribution':[distribution_func,["COMMONNAME"]],
 	'num_species':[species_func,["COMMONNAME"]]
 }
 
-function getStatistics(statList,points,data,injectionFunc)
+function getStatistics(statList,points,data,cardID,injectionFunc)
 {
-
+	console.log('called for '+cardID+' with statList: '+statList+' with injectionFunc: '+injectionFunc);
 	require([
 		"esri/tasks/query", "esri/tasks/QueryTask", "esri/geometry/Multipoint", "esri/SpatialReference"
 	], 
@@ -91,7 +91,7 @@ function getStatistics(statList,points,data,injectionFunc)
 				var val = Math.round(funclist[i](features) * 100) / 100
 				retvals.push(val);
 			}
-			injectionFunc(data, retvals);
+			injectionFunc(cardID,data, retvals);
 		});
 	});	
 }
@@ -103,6 +103,7 @@ function getOutFuncList(statList)
 	var i2 = 0;
 	for (var i=0;i<statList.length;i++)
 	{
+		console.log(statList);
 		flist.push(typeDict[statList[i]][0]);
 		var toAdd = typeDict[statList[i]][1];
 		for(j=0;j<toAdd.length;j++)
