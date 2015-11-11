@@ -101,16 +101,16 @@ function nearby_top_func(features){
 		spec = top8[i];
 		if (spec != null) finalsel[spec] = speciesdist[spec];
 	}
-	for (var i=0; i<nontop8.length; i++)
-	{
-		spec = nontop8[i];
-		if (spec != null)
-		{
-			if (finalsel["others"] == null) finalsel["others"] = 0;
-			finalsel["others"] += speciesdist[spec];	
-		}
-	}
-	return finalsel;
+//	for (var i=0; i<nontop8.length; i++)
+//	{
+//		spec = nontop8[i];
+//		if (spec != null)
+//		{
+//			if (finalsel["others"] == null) finalsel["others"] = 0;
+//			finalsel["others"] += speciesdist[spec];	
+//		}
+//	}
+	return Object.keys(finalsel);
 }
 
 var typeDict = {
@@ -122,12 +122,35 @@ var typeDict = {
 	'nearby_top':[nearby_top_func,["COMMONNAME"]],
 }
 
-function getNearby(x, y, r, data, injectionFunc)
+function getNearby(x, y, data, injectionFunc)
 {
-	points = [[x-r,y-r],[x-r,y+r],
-			  [x+r,y+r],[x+r,y-r]];
+	nbx = x;
+	nby = y
+	nbr = 100;
+	nbif = injectionFunc;
+	nbdata = data;
+	nearbyHelper(null, []);	
+}
+var nbx;
+var nby;
+var nbr;
+var nbdata;
+var nbif;
+function nearbyHelper(nullval, top8)
+{
+	nbr += 200;
+	points = [[nbx-nbr,nby-nbr],[nbx-nbr,nby+nbr],
+			  [nbx+nbr,nby+nbr],[nbx+nbr,nby-nbr]];
 	statList = ['nearby_top'];
-	getStatistics(statList, points, data, injectionFunc);
+	if (top8 == null) top8 = [];
+	if (top8.length < 8 && nbr < 2000)
+	{
+		getStatistics(statList, points, nbdata, nearbyHelper);
+	}
+	else
+	{
+		nbif(nbdata, top8);
+	}
 }
 
 
