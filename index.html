@@ -32,6 +32,9 @@
 <link href="assets/css/magic_space.css" rel="stylesheet" type="text/css"/>
 <link href="assets/css/footer.css" rel="stylesheet" type="text/css"/>
 <!-- END CSS TEMPLATE -->
+
+<script src="http://js.arcgis.com/3.14/"></script>
+<script type="text/javascript" src="gis/js/getcard.js"></script>
 <style type="text/css">
 .row-eq-height {
 display: -webkit-box;
@@ -294,7 +297,7 @@ display:         flex;
   </div>
   <!-- END SIDEBAR -->
   <!-- BEGIN PAGE CONTAINER-->
-  <div class="page-content">
+  <div class="page-content container-fluid">
     <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
     <div id="portlet-config" class="modal hide">
       <div class="modal-header">
@@ -404,7 +407,7 @@ display:         flex;
     </div>
 		<!-- END REALTIME SALES GRAPH -->
 	</div>
-     
+   
   <div class="row" >
   <!-- BEGIN BLOG POST BIG IMAGE WIDGET -->
     <div class="col-md-6 col-vlg-4 col-sm-12 ">			
@@ -807,117 +810,7 @@ display:         flex;
         </div>
       </div>
           <!-- END WEATHER DETAIL VIEW WIDGET -->
-      <div class="row row-eq-height" >
-        <div class="col-md-12">
-          <div class="col-md-6 m-b-5 col-lg-6 col-sm-6">
-            <!-- BEGIN MINI WEATHER WIDGET -->
-  			    <div class="row  tiles-container">
-              <div class="col-md-5  col-xs-5 no-padding">
-                <div class="tiles red p-t-20">
-                  <canvas id="widget-partly-cloudy-day" width="64" height="64" class=" h-align-middle"></canvas>
-                  <h6 class="bold text-white text-center p-b-15">WEDNESDAY</h6>
-                </div>
-              </div>
-              <div class="col-md-7 col-xs-7 tiles white text-center">
-                  <h2 class="semi-bold text-error weather-widget-big-text no-margin p-t-20 p-b-10">34&deg;</h2>
-                  <div class="tiles-title blend m-b-5">CURRENTLY</div>
-                  <div class="pull-left m-l-15 ">
-                    <canvas id="widget-wind" width="16" height="16" class="inline"></canvas>
-                    <div class="inline">
-                      <h5 class="semi-bold no-margin ">54</h5>
-                      <p class="bold text-extra-small ">MPH</p>
-                    </div>
-                  </div>
-                  <div class="pull-right m-r-25">
-                    <canvas id="widget-sleet" width="16" height="16" class="inline"></canvas>
-                    <div class="inline">
-                      <h5 class="semi-bold no-margin ">53</h5>
-                      <p class="bold text-extra-small ">MM</p>
-                    </div>
-                  </div>
-                  <div class="clearfix"></div>
-              </div>
-            </div>
-  			    <!-- END WEATHER DETAIL VIEW WIDGET -->	
-  			  </div>
-  			  <div class="col-md-6 col-lg-6 col-sm-6">     
-            <!-- BEGIN MINI WEATHER WIDGET -->
-  			    <div class="row  tiles-container">    
-              <div class="col-md-7 col-xs-7">
-                <div class="tiles white text-center">
-                  <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
-                  <div class="tiles-title blend p-b-25">CURRENTLY</div>
-                  <div class="clearfix"></div>
-                </div>
-              </div>
-  				    <div class="col-md-5 col-xs-5 no-padding">
-                <div class="tiles blue p-t-20">
-                  <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
-                  <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
-                </div>
-              </div>
-            </div>
-  			   <!-- END WEATHER DETAIL VIEW WIDGET -->						
-  			  </div>
-          <div class="col-md-6 col-lg-6 col-sm-6">     
-            <!-- BEGIN MINI WEATHER WIDGET -->
-            <div class="row  tiles-container">    
-              <div class="col-md-7 col-xs-7">
-                <div class="tiles white text-center">
-                  <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
-                  <div class="tiles-title blend p-b-25">CURRENTLY</div>
-                  <div class="clearfix"></div>
-                </div>
-              </div>
-              <div class="col-md-5 col-xs-5 no-padding">
-                <div class="tiles blue p-t-20">
-                  <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
-                  <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
-                </div>
-              </div>
-            </div>
-           <!-- END WEATHER DETAIL VIEW WIDGET -->            
-          </div>  
-          <div class="col-md-6 col-lg-6 col-sm-6">     
-            <!-- BEGIN MINI WEATHER WIDGET -->
-            <div class="row  tiles-container">    
-              <div class="col-md-7 col-xs-7">
-                <div class="tiles white text-center">
-                  <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
-                  <div class="tiles-title blend p-b-25">CURRENTLY</div>
-                  <div class="clearfix"></div>
-                </div>
-              </div>
-              <div class="col-md-5 col-xs-5 no-padding">
-                <div class="tiles blue p-t-20">
-                  <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
-                  <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
-                </div>
-              </div>
-            </div>
-           <!-- END WEATHER DETAIL VIEW WIDGET -->            
-          </div>
-          <div class="col-md-6 col-lg-6 col-sm-6">     
-            <!-- BEGIN MINI WEATHER WIDGET -->
-            <div class="row  tiles-container">    
-              <div class="col-md-7 col-xs-7">
-                <div class="tiles white text-center">
-                  <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
-                  <div class="tiles-title blend p-b-25">CURRENTLY</div>
-                  <div class="clearfix"></div>
-                </div>
-              </div>
-              <div class="col-md-5 col-xs-5 no-padding">
-                <div class="tiles blue p-t-20">
-                  <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
-                  <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
-                </div>
-              </div>
-            </div>
-           <!-- END WEATHER DETAIL VIEW WIDGET -->            
-          </div>  	
-        </div>
-      </div>
+      
 		  <div class="row" style="display:none">
 			<div class="col-md-12 m-b-10">					
 				<!-- BEGIN SALES WIDGET WITH FLOT CHART -->
@@ -1162,6 +1055,120 @@ display:         flex;
 		</div>
 
   </div>
+
+  <div class="row row-height" >
+    <div class="col-md-12">
+    <div class="col-md-6 col-lg-6 col-sm-6 col-height">
+      <!-- BEGIN MINI WEATHER WIDGET -->
+      <div class="row  tiles-container">
+        <div class="col-md-5  col-xs-5 no-padding">
+          <div class="tiles red p-t-20">
+            <canvas id="widget-partly-cloudy-day" width="64" height="64" class=" h-align-middle"></canvas>
+            <h6 class="bold text-white text-center p-b-15">WEDNESDAY</h6>
+          </div>
+        </div>
+        <div class="col-md-7 col-xs-7 tiles white text-center">
+            <h2 class="semi-bold text-error weather-widget-big-text no-margin p-t-20 p-b-10">34&deg;</h2>
+            <div class="tiles-title blend m-b-5">CURRENTLY</div>
+            <div class="pull-left m-l-15 ">
+              <canvas id="widget-wind" width="16" height="16" class="inline"></canvas>
+              <div class="inline">
+                <h5 class="semi-bold no-margin ">54</h5>
+                <p class="bold text-extra-small ">MPH</p>
+              </div>
+            </div>
+            <div class="pull-right m-r-25">
+              <canvas id="widget-sleet" width="16" height="16" class="inline"></canvas>
+              <div class="inline">
+                <h5 class="semi-bold no-margin ">53</h5>
+                <p class="bold text-extra-small ">MM</p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+      </div>
+      <!-- END WEATHER DETAIL VIEW WIDGET --> 
+    </div>
+    <div class="col-md-6 col-lg-6 col-sm-6 col-height">     
+      <!-- BEGIN MINI WEATHER WIDGET -->
+      <div class="row  tiles-container">    
+        <div class="col-md-7 col-xs-7">
+          <div class="tiles white text-center">
+            <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
+            <div class="tiles-title blend p-b-25">CURRENTLY</div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="col-md-5 col-xs-5 no-padding">
+          <div class="tiles blue p-t-20">
+            <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
+            <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
+          </div>
+        </div>
+      </div>
+     <!-- END WEATHER DETAIL VIEW WIDGET -->            
+    </div>
+    <div class="col-md-6 col-lg-6 col-sm-6 col-height">     
+      <!-- BEGIN MINI WEATHER WIDGET -->
+      <div class="row  tiles-container">    
+        <div class="col-md-7 col-xs-7">
+          <div class="tiles white text-center">
+            <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
+            <div class="tiles-title blend p-b-25">CURRENTLY</div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="col-md-5 col-xs-5 no-padding">
+          <div class="tiles blue p-t-20">
+            <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
+            <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
+          </div>
+        </div>
+      </div>
+     <!-- END WEATHER DETAIL VIEW WIDGET -->            
+    </div>  
+    <div class="col-md-6 col-lg-6 col-sm-6 col-height">     
+      <!-- BEGIN MINI WEATHER WIDGET -->
+      <div class="row  tiles-container">    
+        <div class="col-md-7 col-xs-7">
+          <div class="tiles white text-center">
+            <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
+            <div class="tiles-title blend p-b-25">CURRENTLY</div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="col-md-5 col-xs-5 no-padding">
+          <div class="tiles blue p-t-20">
+            <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
+            <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
+          </div>
+        </div>
+      </div>
+     <!-- END WEATHER DETAIL VIEW WIDGET -->            
+    </div>
+    <div class="col-md-6 col-lg-6 col-sm-6 col-height">     
+      <!-- BEGIN MINI WEATHER WIDGET -->
+      <div class="row  tiles-container">    
+        <div class="col-md-7 col-xs-7">
+          <div class="tiles white text-center">
+            <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">16&deg;</h2>
+            <div class="tiles-title blend p-b-25">CURRENTLY</div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="col-md-5 col-xs-5 no-padding">
+          <div class="tiles blue p-t-20">
+            <canvas id="widget-partly-rainy-day" width="64" height="64" class=" h-align-middle"></canvas>
+            <h6 class="bold text-white text-center p-b-15">MONDAY</h6>
+          </div>
+        </div>
+      </div>
+     <!-- END WEATHER DETAIL VIEW WIDGET -->            
+    </div>    
+    </div>
+  </div>
+
+
 </div>
 	   <div class="row hidden-xlg">
              <div class="row" id="stories-row">
@@ -1535,11 +1542,6 @@ display:         flex;
         return inside;
     }
 
-    function getStatistics(statList,points,data,injectionFunc){
-      var cardData = [753,12312,4562];
-      injectionFunc(data,cardData);
-    }
-
 
     function injectTourCardHTML(data,tourData){
       $("#tourRow").html(" \
@@ -1600,9 +1602,12 @@ display:         flex;
           $('#tourRow div').fadeOut("fast",function(){
             console.log('inserting '+currentCard);
             var statList = [];
-            for (cardData in data.val().cards[currentCard].data){
-              statList.push(cardData.type);
+            cardData = data.val().cards[currentCard].data;
+            for (var j=0;j< cardData.length;j++){
+              statList.push(cardData[j].type);
             }
+            console.log('the date i pass in '+statList);
+
 
             getStatistics(statList,
                           data.val().cards[currentCard].location,
