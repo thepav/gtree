@@ -675,7 +675,7 @@ body.modal-open .chat-window-wrapper {
   display: none;
 }
 .page-sidebar.mini .status-widget {
-  display: none;
+  display: block;
 }
 .page-sidebar.mini .notification-alert {
   display: none;
@@ -760,11 +760,11 @@ body.modal-open .chat-window-wrapper {
 .page-sidebar.mini .page-sidebar-wrapper > ul > li.open > a,
 .page-sidebar.mini .page-sidebar-wrapper > ul > li > a:hover,
 .page-sidebar.mini .page-sidebar-wrapper > ul > li:hover > a {
-  background: #0b9c8f;
+  background: #eeb211;
 }
 .page-sidebar.mini .page-sidebar-wrapper > ul > li > a:hover,
 .page-sidebar.mini .page-sidebar-wrapper > ul > li:hover > a {
-  background: #0b9c8f;
+  background: #eeb211;
 }
 .page-sidebar.mini .page-sidebar-wrapper > ul > li.active > a i,
 .page-sidebar .page-sidebar-wrapper > ul > li:hover > a i {

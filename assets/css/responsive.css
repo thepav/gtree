@@ -468,7 +468,8 @@
   .page-sidebar .page-sidebar-wrapper > ul > li.open > a,
   .page-sidebar .page-sidebar-wrapper > ul > li > a:hover,
   .page-sidebar .page-sidebar-wrapper > ul > li:hover > a {
-    background: #0b9c8f;
+    background: #eeb211;
+    color: #262626;
   }
   .page-sidebar .page-sidebar-wrapper > ul > li.open > a,
   .page-sidebar .page-sidebar-wrapper > ul > li > a:hover,
