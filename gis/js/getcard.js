@@ -178,6 +178,8 @@ function getStatistics(statList,points,data,cardID,injectionFunc)
 				retvals.push(funclist[i](features));
 			}
 			injectionFunc(cardID,data, retvals);
+		}, function(error) {
+			console.log(error);
 		});
 	});	
 }
