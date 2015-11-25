@@ -1311,8 +1311,8 @@ display:         flex;
   proj4.defs("EPSG2240", "+proj=tmerc +lat_0=30 +lon_0=-84.16666666666667 +k=0.9999 +x_0=699999.9998983998 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs");
 
   function positionUpdate(position) {
-    var statePlaneCoords = proj4('WGS84', "EPSG2240", [position.coords.latitude, position.coords.longitude]);
-    console.log("Transformed " + [position.coords.latitude, position.coords.longitude] + " to " + statePlaneCoords);
+    var statePlaneCoords = proj4('WGS84', "EPSG2240", [position.coords.longitude, position.coords.latitude]);
+    console.log("Transformed " + [position.coords.longitude, position.coords.latitude] + " to " + statePlaneCoords);
   }
 
   if (navigator.geolocation) {
