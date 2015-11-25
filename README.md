@@ -91,4 +91,24 @@ GTree
 * Description: The number of different tree species in the given area.
 * Calculation Method: Query GIS objects in position point array, get COMMONNAME for each tree, keep track of number of new trees species. Return tree species count.
 
+## Location
+Location for each card is implemented as an array of location types, denoted using "locationtype". Each type has an associated set of data. Note that all location coordinates are stored using EPSG2240 (West Georgia State Plane).
+####Reference
+* Type Label: "reference"
+* Description: allows commonly used locations (such as zone and tour boundaries) to be referenced without needing to copy that data to each card
+* Location data:
+  * reference: the name of the location reference as defined in the "locations" section of Firebase
 
+####Boundary
+* Type Label: "boundary"
+* Description: a set of points which creates a bounding polygon
+* Location data:
+  * bounds: the set of bounding points
+
+####Circle
+* Type Label: "circle"
+* Description: a circular area with a center and radius (in survey feet)
+* Location data:
+  * centerX: x coordinate of the center of the circle
+  * centerY: y coordinate of the center of the circle
+  * radius: radius of the circle area

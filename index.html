@@ -1457,7 +1457,7 @@ display:         flex;
           return insidePolygon(currentLocation, locationData.bounds);
           break;
         case "circle":
-          var distance = Math.sqrt(Math.pow(currentLocation.x - locationData.center.x, 2), Math.pow(currentLocation.y - location.center.y, 2));
+          var distance = Math.sqrt(Math.pow(currentLocation.x - locationData.centerX, 2), Math.pow(currentLocation.y - location.centerY, 2));
           return (distance < location.radius);
           break;
         default:
