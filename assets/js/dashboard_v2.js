@@ -12,7 +12,7 @@ $(document).ready(function() {
 //loadAnimatedWidget_pure_white();
 //loadSampleChart();
 //loadSampleChartDemo2();
-loadLocationMaps();
+//loadLocationMaps();
 
 //Morris Charts
 function randValue() {
@@ -68,23 +68,5 @@ var data_com = [
 [22, 120 + randValue()],
 [23, 130 + randValue()]
 ];
-
-
-function loadLocationMaps(){
-
-$('#mapplic_demo').mapplic({
-	source: 'assets/js/json/states.json',
-	height: 494,
-	sidebar: false,
-	minimap: false,
-	locations: true,
-	deeplinking: true,
-	fullscreen: false,
-	hovertip: true,
-	developer: false,
-	maxscale: 3,
-	height:380
-});    
-}
 
 });
