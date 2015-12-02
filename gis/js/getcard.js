@@ -153,10 +153,16 @@ function nearbyHelper(nullval, top8)
 	}
 }
 
+function functionName(fun) {
+  var ret = fun.toString();
+  ret = ret.substr('function '.length);
+  ret = ret.substr(0, ret.indexOf('('));
+  return ret;
+}
 
 function getStatistics(statList,points,data,cardID,injectionFunc)
 {
-	console.log('called for '+cardID+' with statList: '+statList+' with injectionFunc: '+injectionFunc);
+	console.log('called for '+cardID+' with statList: '+statList+' with injectionFunc: '+functionName(injectionFunc));
 	require([
 		"esri/tasks/query", "esri/tasks/QueryTask", "esri/geometry/Multipoint", "esri/SpatialReference"
 	], 
