@@ -328,7 +328,7 @@ display:         flex;
 <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
 <script type="text/javascript">
   var map;
-  var currentLocation;
+  var currentLocation =[2226425.3,1374118.6];
   var locationMarker;
   var statePlaneSpatialReference;
 
@@ -369,6 +369,7 @@ display:         flex;
       currentLocation = proj4('WGS84', "EPSG2240", [position.coords.longitude, position.coords.latitude]);
       var pt = new Point(currentLocation, statePlaneSpatialReference);
       updateLocationMarker(pt);
+      updateEverything(firebaseData);
     }
 
     function mapInit(map) {
@@ -392,11 +393,16 @@ display:         flex;
   var ref = new Firebase("https://gtarboretum.firebaseio.com");
   var theCards;
   var currentTour = null;
+  var injectedTrees = [];
+  var firebaseData = null;
 
   var locationReferences = null;
 
-  // Listen for realtime changes
-  ref.on("value", function(data) {
+  function updateEverything() {
+    var data = firebaseData;
+    if (data == null){
+      return;
+    }
     var order = data.val().order;
     var wrapperApplied = false;
     var numInfo = 1;
@@ -488,132 +494,52 @@ display:         flex;
     function injectTreesHTML(cardID,data,cardData){
       console.log('tree data GIS: '+cardData);
       console.log(cardData);
-       
+      var i = 0
+      while($.inArray(cardData[0][i],injectedTrees)>=0){
+        i = i+1;
+        if (i == 7){
+          return;
+        }
+      }
 
-      // $('#info').append(' \
-      //   <div class="col-md-8 col-vlg-4 col-sm-12" style="max-height:450px;"> \
-      //     <div class="row " style="max-height:221px"> \
-      //       <div class="col-md-6 col-sm-6 m-b-10"  data-aspect-ratio="true" style="max-height:221px;"> \
-      //         <div class="live-tile slide ha " data-speed="750" data-delay="3000" data-mode="carousel" style="max-height:222px"> \
-      //           <div class="slide-front ha tiles adjust-text" style="max-height:222px"> \
-      //             <div class="p-t-20 p-l-20 p-r-20 p-b-20"> <i class="fa fa-map-marker fa-2x"></i> \
-      //               <p class="text-white-opacity p-t-10">21 Jan</p> \
-      //               <h3 class="text-white no-margin">Benjamin <span class="semi-bold">Flowers</span></h3> \
-      //             </div> \
-      //           </div> \
-      //           <div class="slide-back ha tiles adjust-text" style="max-height:222px"> \
-      //             <div class="p-t-20 p-l-20 p-r-20 p-b-20" style="background-image: url(\'assets/img/yellowrose.png\');"> <i class="fa fa-map-marker fa-2x"></i> \
-      //               <p class="text-white-opacity p-t-10">12 Feb</p> \
-      //               <h3 class="text-white no-margin">Yellow Jacket <span class="semi-bold">Roses</span></h3> \
-      //               <p>Now 25% off!</p> \
-      //             </div> \
-      //           </div> \
-      //         </div> \
-      //       </div> \
-      //       <!-- END ANIMATED TILE --> \
-      //       <!-- BEGIN ANIMATED TILE --> \
-      //       <div class="col-md-6 col-sm-6 m-b-10" data-aspect-ratio="true" style="max-height:221px"> \
-      //         <div class="live-tile slide ha " data-speed="750" data-delay="4000" data-mode="carousel" style="max-height:221px"> \
-      //           <div class="slide-front ha tiles blue " style="max-height:221px"> \
-      //             <div class="p-t-20 p-l-20 p-r-20 p-b-20"> \
-      //               <h4 class="text-white no-margin custom-line-height">“Just <span class="semi-bold">Completed</span> the <span class="semi-bold">Hill Tour</span>”</h4> \
-      //             </div> \
-      //             <div class="overlayer bottom-left fullwidth"> \
-      //               <div class="overlayer-wrapper"> \
-      //                 <div class="user-comment-wrapper"> \
-      //                   <div class="profile-wrapper"> <img src="assets/img/profiles/avatar_small.jpg" alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="35" height="35"> \
-      //                   </div> \
-      //                   <div class="comment"> \
-      //                     <div class="user-name text-white "><span class="bold"> David</span> Cooper 
-      //                     </div> \
-      //                     <p class="text-white-opacity">@ Revox</p> \
-      //                   </div> \
-      //                   <div class="clearfix"></div> \
-      //                 </div> \
-      //               </div> \
-      //             </div> \
-      //           </div> \
-      //           <div class="slide-back ha tiles blue" style="max-height:221px"> \
-      //             <div class="user-comment-wrapper m-t-20"> \
-      //               <div class="profile-wrapper"> <img src="assets/img/profiles/d.jpg" alt="" data-src="assets/img/profiles/d.jpg" data-src-retina="assets/img/profiles/d2x.jpg" width="35" height="35"> </div> \
-      //               <div class="comment"> \
-      //                 <div class="user-name text-white "><span class="bold"> Jane</span> Smith </div> \
-      //                 <p class="text-white-opacity">@ Revox</p> \
-      //               </div> \
-      //               <div class="clearfix"></div> \
-      //             </div> \
-      //             <div class="overlayer bottom-left fullwidth"> \
-      //               <div class="overlayer-wrapper"> \
-      //                 <div class="p-t-20 p-l-20 p-r-20 p-b-20"> \
-      //                   <h4 class="text-white no-margin custom-line-height"> “Just <span class="semi-bold">Completed</span> the <span class="semi-bold">Tech Green</span> tour”</h4> \
-      //                 </div> \
-      //               </div> \
-      //             </div> \
-      //           </div> \
-      //         </div> \
-      //       </div> \
-      //       <!-- END ANIMATED TILE --> \
-      //     </div> \
-      //     <div class="row" style="max-height:221px"> \
-      //       <div class="col-md-6  col-sm-6 m-b-10" data-aspect-ratio="true" style="max-height:221px"> \
-      //         <div class="live-tile slide ha" data-speed="750" data-delay="4500" data-mode="carousel" style="max-height:221px"> \
-      //           <div class="slide-front ha tiles green p-t-20 p-l-20 p-r-20 p-b-20" style="max-height:221px"> \
-      //             <h1 class="semi-bold text-white">Rising <i class="icon-custom-up icon-custom-2x"></i></h1> \
-      //             <div class="overlayer bottom-left fullwidth"> \
-      //               <div class="overlayer-wrapper"> \
-      //                 <div class="p-t-20 p-l-20 p-r-20 p-b-20"> \
-      //                   <p class="bold">Weather</p> \
-      //                   <p >60 degrees <span class="m-l-10"><i class="fa fa-sort-desc"></i> </span></p> \
-      //                   <p class="bold p-t-15">Tomorrow</p> \
-      //                   <p >58 degrees <span class="m-l-10"><i class="fa fa-sort-desc"></i> </span></p> \
-      //                 </div> \
-      //               </div> \
-      //             </div> \
-      //           </div> \
-      //           <div class="slide-back ha tiles green" style="max-height:221px"> \
-      //             <div class="p-t-20 p-l-20 p-r-20 p-b-20"> \
-      //               <h5 class="text-white semi-bold no-margin p-b-5">Tours Taken</h5> \
-      //               <h3 class="text-white no-margin">6 <span class="semi-bold">Today</span></h3> \
-      //             </div> \
-      //             <div class="overlayer bottom-left fullwidth"> \
-      //               <div class="overlayer-wrapper"> \
-      //                 <div id="sales-sparkline"></div> \
-      //               </div> \
-      //             </div> \
-      //           </div> \
-      //         </div> \
-      //       </div> \
-      //         <!-- BEGIN ANIMATED TILE --> \
-      //       <div class="col-md-6  col-sm-6 m-b-10"  data-aspect-ratio="true" style="max-height:221px"> \
-      //         <div class="live-tile slide ha " data-speed="750" data-delay="6000" data-mode="carousel" style="max-height:221px" > \
-      //           <div class="slide-front ha tiles green " style="max-height:221px"> \
-      //             <div class="overlayer bottom-left fullwidth"> \
-      //               <div class="overlayer-wrapper"> \
-      //                 <div class="tiles gradient-black p-l-20 p-r-20 p-b-20 p-t-20"> \
-      //                   <h4 class="text-white semi-bold no-margin">Acer Rubrum </h4> \
-      //                   <h5 class="text-white semi-bold ">really green</h5> \
-      //                   <p class="text-white semi-bold no-margin"><i class="icon-custom-up "></i> Read More</p> \
-      //                 </div> \
-      //               </div> \
-      //             </div> \
-      //             <img src="assets/img/others/tree1.jpg" alt="" class="image-responsive-width xs-image-responsive-width"> \
-      //           </div> \
-      //           <div class="slide-back ha tiles green" style="max-height:221px"> \
-      //             <div class="overlayer bottom-left fullwidth"> \
-      //               <div class="overlayer-wrapper"> \
-      //                 <div class="tiles gradient-black p-l-20 p-r-20 p-b-20 p-t-20"> \
-      //                   <h5 class="text-white semi-bold ">Osmanthus Fragrans</h5> \
-      //                   <p class="text-white semi-bold no-margin"><i class="icon-custom-up "></i> Read More</p> \
-      //                 </div> \
-      //               </div> \
-      //             </div> \
-      //             <img src="assets/img/others/tree2.jpg" alt="" class="image-responsive-width xs-image-responsive-width"> \
-      //           </div> \
-      //         </div> \
-      //       </div> \
-      //       <!-- END ANIMATED TILE --> \
-      //     </div> \
-      //   </div>');
+      injectedTrees.push(cardData[0][i]);
+      injectedTrees.push(cardData[0][i+1]);
+
+
+      
+      $('#info').append( '\
+        <div id="'+cardID+'" class="col-md-4 col-vlg-4 col-sm-12"> \
+          <div class="row " style="max-height:220px"> \
+            <div class="col-md-12 col-sm-12 m-b-10"  data-aspect-ratio="true" style="max-height:220px"> \
+              <div class="tiles ha overflow-hidden" style="max-height:220px"> \
+                <div class="overlayer bottom-left fullwidth"> \
+                  <div class="overlayer-wrapper"> \
+                    <div class="tiles gradient-black p-l-20 p-r-20 p-b-20 p-t-20"> \
+                      <h5 class="text-white semi-bold ">'+cardData[0][i]+'</h5> \
+                      <p class="text-white semi-bold no-margin"><i class="icon-custom-up "></i> Read More</p> \
+                    </div> \
+                  </div> \
+                </div> \
+                <img src="assets/img/others/tree2.jpg" alt="" class="image-responsive-width xs-image-responsive-width"> \
+              </div> \
+            </div> \
+          </div> \
+          <div class="row" style="max-height:221px"> \
+            <div class="col-md-12 col-sm-12 m-b-10" data-start-now="true" data-aspect-ratio="true" style="max-height:220px"> \
+              <div class="tiles ha overflow-hidden" style="max-height:220px"> \
+                <div class="overlayer bottom-left fullwidth"> \
+                  <div class="overlayer-wrapper"> \
+                    <div class="tiles gradient-black p-l-20 p-r-20 p-b-20 p-t-20"> \
+                      <h5 class="text-white semi-bold ">'+cardData[0][i+1]+'</h5> \
+                      <p class="text-white semi-bold no-margin"><i class="icon-custom-up "></i> Read More</p> \
+                    </div> \
+                  </div> \
+                </div> \
+                <img src="assets/img/others/tree2.jpg" alt="" class="image-responsive-width xs-image-responsive-width"> \
+              </div> \
+            </div> \
+          </div> \
+        </div>');
     }
 
 
@@ -631,7 +557,7 @@ display:         flex;
           // ray-casting algorithm based on
           // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
 
-          var x = point['x'], y = point['y'];
+          var x = point[0], y = point[1];
 
           var inside = false;
           for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
@@ -673,7 +599,7 @@ display:         flex;
         var isInside = false;
         for (var j = 0; j < card.location.length; j++) {
           var locationData = card.location[j];
-          if (checkInside(data.val().globalValues[data.val().globalValues.aMyLocation], locationData)) {
+          if (checkInside(currentLocation, locationData)) {
             isInside = true;
           }
         }
@@ -681,7 +607,7 @@ display:         flex;
 
       //var isInside = insidePolygon(data.val().globalValues[data.val().globalValues.aMyLocation],data.val().cards[theCards[i]].location);
       if (card.type == 'nearby_trees' || isInside ) {
-        
+
         // Check if you're inside a new tour area
         if (card.type =='tour_summary' && cardName != currentTour){
 
@@ -710,7 +636,7 @@ display:         flex;
           currentTour = cardName;
 
         // If there is a data field inside this card, we will query the data first.
-        } else if ($.inArray('data',Object.keys(card))) {
+        } else if ($.inArray('data',Object.keys(card)) >= 0) {
           console.log('not tour_summary or new tour summary and has data');
           // Remove card if it already exists
           if ($('#'+cardName).length){
@@ -728,9 +654,18 @@ display:         flex;
           
           var locationArea = [];
           var reference = locationReferences[card.location[0].reference];
-          for (var j = 0; j < reference.length; j++) {
-            var coords = reference[j];
-            locationArea.push([coords.x,coords.y]);
+          if(reference){
+            for (var j = 0; j < reference.length; j++) {
+              var coords = reference[j];
+              locationArea.push([coords.x,coords.y]);
+            }
+          }else {
+            locationArea = [
+              [currentLocation[0]-500,currentLocation[1]-500],
+              [currentLocation[0]+500,currentLocation[1]-500],
+              [currentLocation[0]+500,currentLocation[1]+500],
+              [currentLocation[0]-500,currentLocation[1]+500],
+            ];
           }
 
           // Query those statistics from GIS and inject this card into the HTML on the callback.
@@ -807,6 +742,12 @@ display:         flex;
       }
     }
     $('#info').append(storyCards);
+  }
+
+  // Listen for realtime changes
+  ref.on("value", function(data){
+    firebaseData = data;
+    updateEverything();
   });
 
 </script>
