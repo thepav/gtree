@@ -8278,3 +8278,49 @@ body.rtl .footer-widget {
   max-height: 450px;
   min-height: 450px;
 }
+
+@-webkit-keyframes
+ opacity-pulse
+{
+  0%
+  {
+    opacity: 1.0;
+
+  }
+  45%
+  {
+    opacity: .20;
+
+  }
+  100%
+  {
+    opacity: 1.0;
+
+  }
+}
+@-moz-keyframes
+ opacity-pulse
+{
+  0%
+  {
+    opacity: 1.0;
+  }
+  45%
+  {
+    opacity: .20;
+
+  }
+  100%
+  {
+    opacity: 1.0;
+  }
+}
+
+#gis_map_graphics_layer {
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: opacity-pulse;
+  -moz-animation-duration: 3s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-name: opacity-pulse;
+}
