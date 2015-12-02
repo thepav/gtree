@@ -8280,7 +8280,7 @@ body.rtl .footer-widget {
 }
 
 @-webkit-keyframes
- pulse
+ opacity-pulse
 {
   0%
   {
@@ -8299,7 +8299,7 @@ body.rtl .footer-widget {
   }
 }
 @-moz-keyframes
- pulse
+ opacity-pulse
 {
   0%
   {
@@ -8319,8 +8319,8 @@ body.rtl .footer-widget {
 #gis_map_graphics_layer {
   -webkit-animation-duration: 3s;
   -webkit-animation-iteration-count: infinite;
-  -webkit-animation-name: pulse;
+  -webkit-animation-name: opacity-pulse;
   -moz-animation-duration: 3s;
   -moz-animation-iteration-count: infinite;
-  -moz-animation-name: pulse;
+  -moz-animation-name: opacity-pulse;
 }
