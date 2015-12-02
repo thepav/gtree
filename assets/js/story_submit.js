@@ -31,7 +31,7 @@ function storySubmit() {
 
 	if (file) {
 		loadImage.parseMetaData(file, function (data) {
-			var imgOrientation = data.exif.get('Orientation');
+			var imgOrientation = data.exif ? data.exif.get('Orientation') : 0;
 			loadImage(
 				file,
 				function (canvas) {
@@ -62,7 +62,7 @@ function handleFileSelect(evt) {
 
 	var preview = document.getElementById('image-preview');
 	loadImage.parseMetaData(file, function (data) {
-		var imgOrientation = data.exif.get('Orientation');
+		var imgOrientation = data.exif ? data.exif.get('Orientation') : 0;
 		loadImage(
 			file,
 			function (canvas) {
