@@ -140,6 +140,12 @@ GTree
 * Description: The number of different tree species in the given area.
 * Calculation Method: Query GIS objects in position point array, get COMMONNAME for each tree, keep track of number of new trees species. Return tree species count.
 
+####Nearyby Trees
+----
+* Type Label: "nearby_top"
+* Description: A list of 8 tree species nearest you.
+* Calculation Method: Query GIS
+
 ## Location
 Location for each card is implemented as an array of location types, denoted using "locationtype". Each type has an associated set of data. Note that all location coordinates are stored using EPSG2240 (West Georgia State Plane).
 ####Reference
