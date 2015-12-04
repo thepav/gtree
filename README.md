@@ -10,9 +10,9 @@ GTree
   * 'data' - a list of 3 dictionaries with 'name' and 'type' fields  
     * 'name' will denote the label shown to the user.  
     * 'type' denotes the GTree datatype (see bellow) that will be shown for this data value.
-  * 'location' - a list of dictionaries with 'x' and 'y' fields representing a polygon that bounds an area in which the card will appear. 
+  * 'location' - a list of a dictionary(ies) based on location documentation below.   
 * Optional Fields: 
-  * The dictionaries within the 'data' list may contain an optional 'overwrite' field whose value shall overwrite whatever is calculated.
+  * The dictionaries within the 'data' list may contain an optional 'overwrite' field whose value shall overwrite whatever is calculated.  
 
 ##### Example JSON:
 ```json
@@ -33,31 +33,80 @@ GTree
       } 
     ],
     "gis_tour_id" : "hill_tour",
-    "location" : [ 
-      {
-        "x" : 2228377,
-        "y" : 1371951
-      },{
-        "x" : 2228477,
-        "y" : 1371951
-      },{
-        "x" : 2228477,
-        "y" : 1371851
-      },{
-        "x" : 2228377,
-        "y" : 1371851
-      } 
-    ],
+    "location" : [
+     {
+      "locationtype" : "reference",
+      "reference" : "hilltour"
+     }
+    ]
     "name" : "Hill Tour",
     "type" : "tour_summary"
   }
 }
+```  
+#### Nearby Trees
+------
+* Required Fields:
+  * 'type' - This must be 'nearby_trees'  
+  * 'data' - a list of 1 dictionary with 'name' and 'type' fields  
+    * 'name' this field doesn't matter but should be present  
+    * 'type' denotes the GTree datatype (see bellow) that will be shown for this data value. Should be "nearby_top".  
+  * 'location' - doesn't matter but should follow the normal format for a reference location type.  
+* Optional Fields: 
+  * The dictionaries within the 'data' list may contain an optional 'overwrite' field whose value shall overwrite whatever is calculated.  
+##### Example JSON:
+```json
+"cards":{
+   "nearbytrees" : {
+     "data" : [
+       {
+         "name" : "doesn't matter",
+         "type" : "nearby_top"
+       }
+     ],
+     "location": [
+       {
+         "locationtype" : "asfddasf",
+         "reference" : "asdfasdf"
+       }
+     ],
+     "type":"nearby_trees"
+   }
+  }
+```
+
+#### Pie Chart
+------
+* Required Fields:
+  * 'body' - the text in the body of the card 
+  * 'type' - This must be 'pie_distribution'  
+  * 'data' - a list of 1 dictionary with 'name' and 'type' fields  
+    * 'name' this field doesn't matter but should be present  
+    * 'type' denotes the GTree datatype (see bellow) that will be shown for this data value. Should be "tree_distribution" for trees.  
+  * 'location' - Follow the normal format location type.  
+
+##### Example JSON:
+```json
+"cards":{
+   "techgreentreedistribution" : {
+      "body" : "The Tech Green is surrounded by trees.",
+      "data" : [ {
+        "name" : "distribution of trees",
+        "type" : "tree_distribution"
+      } ],
+      "location" : [ {
+        "locationtype" : "reference",
+        "reference" : "techgreentour"
+      } ],
+      "name" : "Tree Distribution",
+      "title" : "Tech Green Tree Distribution",
+      "type" : "pie_distribution"
+    }
+  }
 ```
 
 ## Datatypes
 ####Tree Count
-
-
 ------
 * Type Label: "tree_count"  
 * Description: The count of trees within the card's location.
