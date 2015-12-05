@@ -1,5 +1,11 @@
-GTree
+Georgia Tech Arboretum
 ======
+## Overview
+This directory contains all the frontend code for the Georgia Tech Arboretum website. It was built from the Webarch - Responsive Admin Dashboard template, and all files related to the template remain within the repository. For installation, the site can be served as static HTML files, and the files and directories which should be placed within the root directory of the file server are:
+* index.html
+* story_submit.html
+* assets/
+
 ## Card Types
 #### Tour Summaries
 ------
@@ -147,7 +153,7 @@ GTree
 * Calculation Method: Query GIS
 
 ## Location
-Location for each card is implemented as an array of location types, denoted using "locationtype". Each type has an associated set of data. Note that all location coordinates are stored using EPSG2240 (West Georgia State Plane).
+The locations in which each card should be displayed is implemented as an array of location types under the "location" field of a card. For each location entry, the location type is denoted using the "locationtype" field. Each type has an associated set of data which are detailed below. Note that all location coordinates are stored using EPSG2240 (West Georgia State Plane).
 ####Reference
 * Type Label: "reference"
 * Description: allows commonly used locations (such as zone and tour boundaries) to be referenced without needing to copy that data to each card
@@ -158,7 +164,7 @@ Location for each card is implemented as an array of location types, denoted usi
 * Type Label: "boundary"
 * Description: a set of points which creates a bounding polygon
 * Location data:
-  * bounds: the set of bounding points
+  * bounds: the set of bounding points, stored as an array of dictionaries with "x" and "y" keys
 
 ####Circle
 * Type Label: "circle"
